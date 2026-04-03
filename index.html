@@ -1352,66 +1352,51 @@
       <div class="hubspot-form-wrap">
         <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
         <script>
-          hbspt.forms.create({
-            portalId: "244971559",
-            formId: "0434ccc6-e3a0-4eb1-a9cb-2956ae966a48",
-            region: "na2",
-            onFormReady: function($form) {
-              // Style labels
-              $form.find('label').css({
-                'font-family': "'DM Sans', sans-serif",
-                'font-size': '11px',
-                'font-weight': '500',
-                'letter-spacing': '0.14em',
-                'text-transform': 'uppercase',
-                'color': 'rgba(255,255,255,0.85)',
-                'margin-bottom': '7px'
-              });
-              // Style inputs
-              $form.find('input, select, textarea').css({
-                'background': 'rgba(255,255,255,0.06)',
-                'border': '1px solid rgba(255,255,255,0.15)',
-                'border-radius': '2px',
-                'padding': '14px 16px',
-                'font-family': "'DM Sans', sans-serif",
-                'font-size': '14px',
-                'color': '#ffffff',
-                'width': '100%',
-                'box-sizing': 'border-box'
-              });
-              // Style submit button
-              $form.find('input[type=submit], .hs-button').css({
-                'background': '#C9913A',
-                'color': '#1B3829',
-                'font-family': "'DM Sans', sans-serif",
-                'font-size': '13px',
-                'font-weight': '500',
-                'letter-spacing': '0.1em',
-                'text-transform': 'uppercase',
-                'padding': '18px 36px',
-                'border': 'none',
-                'border-radius': '2px',
-                'cursor': 'pointer'
-              });
-              // Hide HubSpot branding
-              $form.find('.hs-richtext.hs-main-font-element, .legal-consent-container').hide();
-            },
-            onFormSubmitted: function($form) {
-              $form.find('.submitted-message').css('color', '#ffffff');
-            }
-          });
+          function styleHSForm(wrap) {
+            // Labels
+            wrap.querySelectorAll('label').forEach(function(el) {
+              el.style.cssText = 'color:rgba(255,255,255,0.85)!important;font-family:"DM Sans",sans-serif!important;font-size:11px!important;font-weight:500!important;letter-spacing:0.14em!important;text-transform:uppercase!important;display:block!important;margin-bottom:7px!important;';
+            });
+            // Inputs / selects / textareas
+            wrap.querySelectorAll('input:not([type=submit]),select,textarea').forEach(function(el) {
+              el.style.cssText = 'background:rgba(255,255,255,0.06)!important;border:1px solid rgba(255,255,255,0.15)!important;border-radius:2px!important;padding:14px 16px!important;font-family:"DM Sans",sans-serif!important;font-size:14px!important;color:#fff!important;width:100%!important;box-sizing:border-box!important;';
+            });
+            // Submit button
+            wrap.querySelectorAll('input[type=submit],.hs-button').forEach(function(el) {
+              el.style.cssText = 'background:#C9913A!important;color:#1B3829!important;font-family:"DM Sans",sans-serif!important;font-size:13px!important;font-weight:500!important;letter-spacing:0.1em!important;text-transform:uppercase!important;padding:18px 36px!important;border:none!important;border-radius:2px!important;cursor:pointer!important;';
+            });
+            // Hide branding — target every element that might carry it
+            wrap.querySelectorAll('.hs-richtext,.legal-consent-container,.hs-form-boilerplate,[class*="brand"],[class*="powered"]').forEach(function(el) {
+              if (el.textContent && el.textContent.toLowerCase().includes('hubspot')) {
+                el.style.display = 'none';
+              }
+            });
+          }
 
-          // Also inject a <style> block to override HubSpot's injected CSS
-          var style = document.createElement('style');
-          style.innerHTML = `
-            .hs-form label, .hs-form .hs-field-desc { color: rgba(255,255,255,0.85) !important; font-family: 'DM Sans', sans-serif !important; font-size: 11px !important; font-weight: 500 !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; }
-            .hs-form input:not([type=submit]), .hs-form select, .hs-form textarea { background: rgba(255,255,255,0.06) !important; border: 1px solid rgba(255,255,255,0.15) !important; color: #fff !important; border-radius: 2px !important; padding: 14px 16px !important; }
-            .hs-form input[type=submit], .hs-form .hs-button { background: #C9913A !important; color: #1B3829 !important; border: none !important; border-radius: 2px !important; padding: 18px 36px !important; font-weight: 500 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; cursor: pointer !important; }
-            .hs-form input[type=submit]:hover, .hs-form .hs-button:hover { background: #E2B06A !important; }
-            .hs-form .hs-richtext.hs-main-font-element, .hs-form .legal-consent-container { display: none !important; }
-            .hs-form .hs-error-msg { color: #E2B06A !important; }
-          `;
-          document.head.appendChild(style);
+          function createHSForm() {
+            if (window.hbspt) {
+              var wrap = document.querySelector('.hubspot-form-wrap');
+              hbspt.forms.create({
+                portalId: "244971559",
+                formId: "0434ccc6-e3a0-4eb1-a9cb-2956ae966a48",
+                region: "na2"
+              });
+              // Watch for HubSpot to inject the form into the DOM
+              var observer = new MutationObserver(function() {
+                var form = wrap.querySelector('form');
+                if (form) {
+                  styleHSForm(wrap);
+                  // Keep watching in case HubSpot re-renders anything
+                  setTimeout(function() { styleHSForm(wrap); }, 500);
+                  setTimeout(function() { styleHSForm(wrap); }, 1500);
+                }
+              });
+              observer.observe(wrap, { childList: true, subtree: true });
+            } else {
+              setTimeout(createHSForm, 100);
+            }
+          }
+          createHSForm();
         </script>
       </div>
       <p class="form-book-link" style="margin-top: 20px;">Prefer to talk now? <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank">Book a free 15-minute call.</a></p>
