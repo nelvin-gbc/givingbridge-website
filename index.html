@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GivingBridge Consulting | Fundraising That Outlives the Moment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1B3829;
+    --green-mid: #2D5240;
+    --green-light: #3D6B52;
+    --gold: #C9913A;
+    --gold-light: #E2B06A;
+    --cream: #F7F2EA;
+    --cream-dark: #EDE5D6;
+    --charcoal: #1A1A18;
+    --text-body: #3A3A36;
+    --text-muted: #7A7870;
+    --white: #FFFFFF;
+    --serif: 'Cormorant Garant', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--text-body);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ───────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+  }
+  nav.scrolled {
+    background: var(--green-deep);
+    padding: 14px 60px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 36px;
+    height: 36px;
+    position: relative;
+  }
+  .nav-logo-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+  .nav-logo-text span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green-deep) !important;
+    background: var(--gold);
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--green-deep) !important; }
+
+  /* ── HERO ──────────────────────────────────── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--green-deep);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.5) 59px,
+        rgba(255,255,255,0.5) 60px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.5) 59px,
+        rgba(255,255,255,0.5) 60px
+      );
+  }
+
+  .hero-accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold);
+  }
+
+  .hero-bridge-arc {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55vw;
+    height: 55vw;
+    border-radius: 50%;
+    border: 1px solid rgba(201,145,58,0.12);
+    pointer-events: none;
+  }
+  .hero-bridge-arc::before {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,145,58,0.08);
+  }
+  .hero-bridge-arc::after {
+    content: '';
+    position: absolute;
+    inset: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,145,58,0.06);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 140px 60px 100px;
+    max-width: 760px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 84px);
+    font-weight: 300;
+    line-height: 1.06;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subhead {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin-bottom: 52px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.6); }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    bottom: 80px;
+    display: flex;
+    gap: 48px;
+    z-index: 2;
+  }
+  .hero-stat {}
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1;
+  }
+  .hero-stat-num sup { font-size: 20px; }
+  .hero-stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
+  }
+
+  /* ── PROBLEM SECTION ───────────────────────── */
+  #problem {
+    background: var(--cream);
+    padding: 120px 60px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .problem-left {}
+
+  .problem-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+  .problem-headline em { font-style: italic; color: var(--green-mid); }
+
+  .problem-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-body);
+    margin-bottom: 20px;
+  }
+
+  .problem-right {
+    padding-top: 60px;
+  }
+
+  .tension-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .tension-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .tension-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gold);
+    margin-top: 2px;
+    min-width: 20px;
+  }
+
+  .tension-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-body);
+  }
+  .tension-text strong {
+    font-weight: 500;
+    color: var(--charcoal);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── SERVICES ──────────────────────────────── */
+  #services {
+    background: var(--green-deep);
+    padding: 120px 60px;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  .services-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+  .services-headline em { font-style: italic; color: var(--gold-light); }
+
+  .services-intro {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+    padding-top: 12px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .service-card {
+    background: var(--green-deep);
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--green-mid); }
+
+  .service-card.featured {
+    background: var(--green-mid);
+  }
+  .service-card.featured::after {
+    content: 'Flagship';
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,145,58,0.4);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 36px;
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .service-type {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+  }
+
+  .service-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 24px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+  }
+
+  .service-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .service-bullets li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.55);
+  }
+  .service-bullets li::before {
+    content: '';
+    display: block;
+    min-width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 6px;
+    opacity: 0.7;
+  }
+
+  /* ── ABOUT ─────────────────────────────────── */
+  #about {
+    background: var(--cream);
+    padding: 120px 60px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-image-wrap {
+    position: relative;
+  }
+  .about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--green-mid);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .about-image-placeholder .placeholder-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-image-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: var(--gold);
+    border-radius: 2px;
+    z-index: -1;
+  }
+  .about-image-tag {
+    position: absolute;
+    bottom: 28px;
+    left: -28px;
+    background: var(--white);
+    padding: 16px 22px;
+    border-radius: 2px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  }
+  .about-image-tag-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--green-deep);
+    line-height: 1;
+  }
+  .about-image-tag-text {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .about-content {}
+
+  .about-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .about-headline em { font-style: italic; color: var(--green-mid); }
+
+  .about-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-body);
+    margin-bottom: 18px;
+  }
+
+  .about-credentials {
+    display: flex;
+    gap: 32px;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--cream-dark);
+    flex-wrap: wrap;
+  }
+  .about-cred {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .about-cred-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .about-cred-value {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.4;
+  }
+
+  /* ── PROCESS ───────────────────────────────── */
+  #process {
+    background: var(--cream-dark);
+    padding: 120px 60px;
+  }
+
+  .process-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+  }
+
+  .process-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .process-headline em { font-style: italic; color: var(--green-mid); }
+
+  .process-subhead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .process-step {
+    background: var(--cream);
+    padding: 52px 44px;
+    position: relative;
+  }
+
+  .process-step-num {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--green-deep);
+    opacity: 0.07;
+    line-height: 1;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+  }
+
+  .process-step-icon-wrap {
+    width: 52px;
+    height: 52px;
+    background: var(--green-deep);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .process-step-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+
+  .process-step-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
+  .process-connector {
+    display: none;
+  }
+
+  /* ── CONTACT ───────────────────────────────── */
+  #contact {
+    background: var(--green-deep);
+    padding: 120px 60px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .contact-left {}
+
+  .contact-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .contact-headline em { font-style: italic; color: var(--gold-light); }
+
+  .contact-body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-detail {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .contact-detail-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,145,58,0.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-detail-text {
+    padding-top: 4px;
+  }
+  .contact-detail-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .contact-detail-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+  }
+  .contact-detail-value:hover { color: var(--white); }
+
+  .contact-right {}
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .form-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .form-input, .form-textarea, .form-select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: rgba(201,145,58,0.5);
+    background: rgba(255,255,255,0.09);
+  }
+  .form-select option { background: var(--green-deep); color: var(--white); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--gold);
+    color: var(--green-deep);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .form-book-link {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+  .form-book-link a {
+    color: var(--gold-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── FOOTER ────────────────────────────────── */
+  footer {
+    background: #111F17;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── SCROLL ANIMATIONS ─────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── RESPONSIVE ────────────────────────────── */
+  @media (max-width: 960px) {
+    nav { padding: 18px 28px; }
+    nav.scrolled { padding: 14px 28px; }
+    .nav-links { display: none; }
+
+    #hero, #problem, #services, #about, #process, #contact, footer {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+    .hero-content { padding: 120px 28px 80px; }
+    .hero-stats { right: 28px; gap: 28px; }
+    .hero-stats { display: none; }
+    .hero-bridge-arc { display: none; }
+
+    .problem-grid,
+    .services-header,
+    .about-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    .services-grid,
+    .process-steps { grid-template-columns: 1fr; }
+
+    .about-image-wrap { max-width: 400px; }
+    .about-image-placeholder { aspect-ratio: 1; }
+    .about-image-accent { display: none; }
+    .about-image-tag { left: 16px; }
+
+    .form-row { grid-template-columns: 1fr; }
+    .problem-right { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 26 Q18 10 32 26" stroke="#C9913A" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M4 26 Q18 16 32 26" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="3 3"/>
+      <line x1="14" y1="17" x2="14" y2="26" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+      <line x1="22" y1="13.5" x2="22" y2="26" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+    </svg>
+    <div class="nav-logo-text">
+      GivingBridge
+      <span>Consulting</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">Our Approach</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-bridge-arc"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Fractional Fundraising Leadership</div>
+    <h1 class="hero-headline">
+      Fundraising that<br>
+      <em>outlives</em> the moment.
+    </h1>
+    <p class="hero-subhead">
+      GivingBridge helps nonprofits build the infrastructure, clarity, and roadmap to turn goodwill into lasting support — long after any single campaign has passed.
+    </p>
+    <div class="hero-actions">
+      <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" class="btn-primary">
+        Book a Free Consultation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Core Services</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">M<sup>S</sup></div>
+      <div class="hero-stat-label">Nonprofit Management</div>
+    </div>
+  </div>
+  <div class="hero-accent-line"></div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-label">The Gap We Bridge</div>
+  <div class="problem-grid">
+    <div class="problem-left reveal">
+      <h2 class="problem-headline">
+        Most nonprofits have <em>people who care.</em><br>
+        What they're missing is the structure.
+      </h2>
+      <p class="problem-body">
+        Short-term fundraising keeps the lights on. Long-term fundraising keeps organizations alive. The difference isn't desire — it's infrastructure.
+      </p>
+      <p class="problem-body">
+        GivingBridge exists to build that infrastructure. We work alongside your team to create the systems, clarity, and roadmap that allow movement and growth to continue reliably — intentionally and relationally — long after a single moment has passed.
+      </p>
+    </div>
+    <div class="problem-right reveal reveal-delay-2">
+      <ul class="tension-list">
+        <li class="tension-item">
+          <span class="tension-num">01</span>
+          <div class="tension-text">
+            <strong>Reactive instead of strategic</strong>
+            Fundraising happens in bursts — around events, deadlines, or crises — rather than through a consistent, intentional rhythm.
+          </div>
+        </li>
+        <li class="tension-item">
+          <span class="tension-num">02</span>
+          <div class="tension-text">
+            <strong>Donor relationships that stall</strong>
+            Generous donors exist, but no clear journey exists to deepen their commitment or grow their giving over time.
+          </div>
+        </li>
+        <li class="tension-item">
+          <span class="tension-num">03</span>
+          <div class="tension-text">
+            <strong>No senior fundraising voice</strong>
+            A full-time development director is out of reach — but operating without strategic leadership costs more in the long run.
+          </div>
+        </li>
+        <li class="tension-item">
+          <span class="tension-num">04</span>
+          <div class="tension-text">
+            <strong>Board energy, no direction</strong>
+            You have passionate people around you who want to help. But without structure, their energy scatters instead of compounds.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label" style="color: var(--gold);">What We Offer</div>
+      <h2 class="services-headline">
+        Three ways to build<br>
+        <em>lasting</em> fundraising strength.
+      </h2>
+    </div>
+    <p class="services-intro">
+      Each engagement is tailored to where your organization is — and where it needs to go. Whether you need ongoing leadership or a focused project, there's a clear path in.
+    </p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Service 1: Fractional Development -->
+    <div class="service-card featured reveal">
+      <div class="service-num">01</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="16" r="6" stroke="rgba(201,145,58,0.8)" stroke-width="1.5"/>
+        <path d="M12 36c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="rgba(201,145,58,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M36 20l4 4-4 4M40 24H30" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="service-name">Fractional Development</h3>
+      <p class="service-type">Ongoing Partnership</p>
+      <div class="service-divider"></div>
+      <p class="service-desc">
+        Senior-level fundraising leadership without the full-time hire. I embed with your team to set priorities, guide strategy, and build the systems that sustain consistent performance.
+      </p>
+      <ul class="service-bullets">
+        <li>Fundraising strategy across individual, mid-level, and major gifts</li>
+        <li>Clear, executable plans that translate vision into action</li>
+        <li>Systems and rhythms that prevent staff burnout</li>
+        <li>Ongoing leadership as your organization grows</li>
+      </ul>
+    </div>
+
+    <!-- Service 2: Associate Boards -->
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="18" r="5" stroke="rgba(201,145,58,0.8)" stroke-width="1.5"/>
+        <circle cx="34" cy="18" r="5" stroke="rgba(201,145,58,0.8)" stroke-width="1.5"/>
+        <circle cx="24" cy="14" r="5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <path d="M4 36c0-5.523 4.477-10 10-10M34 26c5.523 0 10 4.477 10 10" stroke="rgba(201,145,58,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M17 36c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3 class="service-name">Associate Board Development</h3>
+      <p class="service-type">Build or Restructure</p>
+      <div class="service-divider"></div>
+      <p class="service-desc">
+        Build or restructure an Associate Board aligned to your mission, culture, and capacity — recruiting heart-wired individuals ready to fundraise, advocate, and expand your reach.
+      </p>
+      <ul class="service-bullets">
+        <li>Purpose, expectations, and term structure defined from day one</li>
+        <li>Recruit for influence, generosity, and genuine commitment</li>
+        <li>Equip members to fundraise and expand your organization's reach</li>
+        <li>Board culture that sustains long after initial launch</li>
+      </ul>
+    </div>
+
+    <!-- Service 3: Donor Strategy -->
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 36V28M16 36V20M24 36V24M32 36V16M40 36V10" stroke="rgba(201,145,58,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M8 28l8-8 8 4 8-8 8-6" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="service-name">Donor Strategy</h3>
+      <p class="service-type">Project-Based Engagement</p>
+      <div class="service-divider"></div>
+      <p class="service-desc">
+        A focused project to segment your donors, define clear journeys for key relationships, and create a realistic engagement cadence your team can actually sustain.
+      </p>
+      <ul class="service-bullets">
+        <li>Donor segmentation by capacity, engagement, and affinity</li>
+        <li>Clear donor journeys for key relationships</li>
+        <li>Engagement cadence built for your team's real capacity</li>
+        <li>Reduce reactive fundraising with clear priorities and timelines</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal">
+      <div class="about-image-placeholder">
+        <!-- Replace src with Nelvin's actual photo -->
+        <div class="placeholder-inner">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="16" fill="rgba(255,255,255,0.15)"/>
+            <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="about-image-accent"></div>
+      <div class="about-image-tag">
+        <div class="about-image-tag-num">M.S.</div>
+        <div class="about-image-tag-text">Nonprofit Management</div>
+      </div>
+    </div>
+
+    <div class="about-content reveal reveal-delay-2">
+      <div class="section-label">About Nelvin</div>
+      <h2 class="about-headline">
+        Intentional work<br>
+        for <em>people-centered</em> missions.
+      </h2>
+      <p class="about-body">
+        My path into the nonprofit sector was intentional. After years in the for-profit world, I felt drawn to work that was more honest and more human. Once I made the shift, I immersed myself quickly — seeking out mentors, learning from experienced practitioners, and building relationships across the sector.
+      </p>
+      <p class="about-body">
+        I completed a master's degree in nonprofit management and gained extensive hands-on experience across a range of organizations. I've seen what separates nonprofits that sustain from those that scramble — and it almost always comes down to infrastructure, not passion.
+      </p>
+      <p class="about-body">
+        Most of my days start with coffee and a reminder that what's really important is relationships. I'm married to Sheeba, dad to Olivia and Elijah, and a reluctant but enthusiastic dog owner (Lola). That groundedness shapes how I work — with care, without rush.
+      </p>
+      <div class="about-credentials">
+        <div class="about-cred">
+          <div class="about-cred-label">Background</div>
+          <div class="about-cred-value">For-profit → Nonprofit</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-label">Education</div>
+          <div class="about-cred-value">M.S. Nonprofit Management</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-label">Approach</div>
+          <div class="about-cred-value">Relational, Intentional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header reveal">
+    <div class="section-label" style="justify-content: center;">How It Works</div>
+    <h2 class="process-headline">Getting started is<br><em>simpler</em> than you think.</h2>
+    <p class="process-subhead">Three steps from first conversation to a fundraising roadmap built for your organization.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="process-step-num">1</div>
+      <div class="process-step-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 10h8M8 14h5M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="rgba(201,145,58,0.9)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3 class="process-step-title">Free 15-Min Conversation</h3>
+      <p class="process-step-desc">We start with a no-pressure call to understand where you are and where you want to go. If there's a fit, we'll know quickly.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="process-step-num">2</div>
+      <div class="process-step-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(201,145,58,0.9)" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="rgba(201,145,58,0.9)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3 class="process-step-title">Discovery & Assessment</h3>
+      <p class="process-step-desc">A deeper look at your current fundraising, donor relationships, team capacity, and organizational goals. This shapes everything that follows.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="process-step-num">3</div>
+      <div class="process-step-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="rgba(201,145,58,0.9)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 class="process-step-title">Roadmap & Engagement</h3>
+      <p class="process-step-desc">A clear plan, matched to the right service. We begin building the infrastructure that will outlast any single campaign, event, or moment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="section-label" style="color: var(--gold);">Let's Talk</div>
+      <h2 class="contact-headline">
+        Ready to build<br>
+        something <em>lasting?</em>
+      </h2>
+      <p class="contact-body">
+        Fill out the form and I'll be in touch shortly. Or skip ahead and book a free 15-minute consultation directly on my calendar.
+      </p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="rgba(201,145,58,0.8)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <div class="contact-detail-label">Email</div>
+            <a href="mailto:nelvin@givingbridgeconsulting.com" class="contact-detail-value">nelvin@givingbridgeconsulting.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="rgba(201,145,58,0.8)" stroke-width="1.2"/><circle cx="8" cy="8" r="2.5" stroke="rgba(201,145,58,0.8)" stroke-width="1.2"/><circle cx="11.5" cy="4.5" r="0.75" fill="rgba(201,145,58,0.8)"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <div class="contact-detail-label">LinkedIn</div>
+            <a href="https://www.linkedin.com/company/giving-bridge-consulting/" target="_blank" class="contact-detail-value">GivingBridge Consulting</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="rgba(201,145,58,0.8)" stroke-width="1.2"/><path d="M5 8h6M8 5v6" stroke="rgba(201,145,58,0.8)" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <div class="contact-detail-label">Free Consultation</div>
+            <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" class="contact-detail-value">Book 15 minutes on my calendar →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right reveal reveal-delay-2">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="Maria" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Johnson" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="maria@organization.org" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organization</label>
+          <input type="text" class="form-input" placeholder="Your nonprofit name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">What brings you here?</label>
+          <select class="form-select">
+            <option value="">Select a service…</option>
+            <option>Fractional Development</option>
+            <option>Associate Board Development</option>
+            <option>Donor Strategy</option>
+            <option>Not sure yet — I need guidance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell me where you're stuck</label>
+          <textarea class="form-textarea" placeholder="Share what's on your mind — no detail is too small."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submit-btn">
+          Send Message
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="form-book-link">Prefer to talk now? <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank">Book a free 15-minute call.</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">GivingBridge Consulting</div>
+  <p class="footer-copy">© 2025 GivingBridge Consulting LLC · Fundraising that outlives the moment.</p>
+  <ul class="footer-links">
+    <li><a href="mailto:nelvin@givingbridgeconsulting.com">Contact</a></li>
+    <li><a href="https://www.linkedin.com/company/giving-bridge-consulting/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank">Book a Call</a></li>
+  </ul>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#3D6B52';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
