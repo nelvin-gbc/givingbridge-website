@@ -1355,8 +1355,63 @@
           hbspt.forms.create({
             portalId: "244971559",
             formId: "0434ccc6-e3a0-4eb1-a9cb-2956ae966a48",
-            region: "na2"
+            region: "na2",
+            onFormReady: function($form) {
+              // Style labels
+              $form.find('label').css({
+                'font-family': "'DM Sans', sans-serif",
+                'font-size': '11px',
+                'font-weight': '500',
+                'letter-spacing': '0.14em',
+                'text-transform': 'uppercase',
+                'color': 'rgba(255,255,255,0.85)',
+                'margin-bottom': '7px'
+              });
+              // Style inputs
+              $form.find('input, select, textarea').css({
+                'background': 'rgba(255,255,255,0.06)',
+                'border': '1px solid rgba(255,255,255,0.15)',
+                'border-radius': '2px',
+                'padding': '14px 16px',
+                'font-family': "'DM Sans', sans-serif",
+                'font-size': '14px',
+                'color': '#ffffff',
+                'width': '100%',
+                'box-sizing': 'border-box'
+              });
+              // Style submit button
+              $form.find('input[type=submit], .hs-button').css({
+                'background': '#C9913A',
+                'color': '#1B3829',
+                'font-family': "'DM Sans', sans-serif",
+                'font-size': '13px',
+                'font-weight': '500',
+                'letter-spacing': '0.1em',
+                'text-transform': 'uppercase',
+                'padding': '18px 36px',
+                'border': 'none',
+                'border-radius': '2px',
+                'cursor': 'pointer'
+              });
+              // Hide HubSpot branding
+              $form.find('.hs-richtext.hs-main-font-element, .legal-consent-container').hide();
+            },
+            onFormSubmitted: function($form) {
+              $form.find('.submitted-message').css('color', '#ffffff');
+            }
           });
+
+          // Also inject a <style> block to override HubSpot's injected CSS
+          var style = document.createElement('style');
+          style.innerHTML = `
+            .hs-form label, .hs-form .hs-field-desc { color: rgba(255,255,255,0.85) !important; font-family: 'DM Sans', sans-serif !important; font-size: 11px !important; font-weight: 500 !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; }
+            .hs-form input:not([type=submit]), .hs-form select, .hs-form textarea { background: rgba(255,255,255,0.06) !important; border: 1px solid rgba(255,255,255,0.15) !important; color: #fff !important; border-radius: 2px !important; padding: 14px 16px !important; }
+            .hs-form input[type=submit], .hs-form .hs-button { background: #C9913A !important; color: #1B3829 !important; border: none !important; border-radius: 2px !important; padding: 18px 36px !important; font-weight: 500 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; cursor: pointer !important; }
+            .hs-form input[type=submit]:hover, .hs-form .hs-button:hover { background: #E2B06A !important; }
+            .hs-form .hs-richtext.hs-main-font-element, .hs-form .legal-consent-container { display: none !important; }
+            .hs-form .hs-error-msg { color: #E2B06A !important; }
+          `;
+          document.head.appendChild(style);
         </script>
       </div>
       <p class="form-book-link" style="margin-top: 20px;">Prefer to talk now? <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank">Book a free 15-minute call.</a></p>
