@@ -418,4 +418,4 @@ figure{margin:0}
   .menu-panel{left:0; right:0; width:auto; top:auto; margin-top:12px; grid-template-columns:1fr}
   .menu-col + .menu-col{border-left:0; border-top:1px solid var(--rule-soft)}
 }
-.menu-panel.single{width:min(320px, calc(100vw - 32px)); grid-template-columns:1fr}
+.menu-panel.single{width:max-content; max-width:calc(100vw - 32px); grid-template-columns:1fr} @media (max-width:780px){ .menu-panel.single{width:auto; max-width:none} }

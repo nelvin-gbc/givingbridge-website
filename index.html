@@ -308,7 +308,7 @@
   .masthead .menu-col a:hover{color:var(--ink)}
   .masthead .menu-col a:hover span{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
   .masthead .menu-col a .price{float:right; font:500 12px/1.6 var(--mono); color:var(--accent)}
-  .menu-panel.single{width:min(320px, calc(100vw - 32px)); grid-template-columns:1fr}
+  .menu-panel.single{width:max-content; max-width:calc(100vw - 32px); grid-template-columns:1fr} @media (max-width:780px){ .menu-panel.single{width:auto; max-width:none} }
   .masthead nav > a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
   @media (max-width:780px){
     .masthead nav{gap:10px 20px}
