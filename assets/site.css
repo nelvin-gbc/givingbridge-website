@@ -419,3 +419,15 @@ figure{margin:0}
   .menu-col + .menu-col{border-left:0; border-top:1px solid var(--rule-soft)}
 }
 .menu-panel.single{width:max-content; max-width:calc(100vw - 32px); grid-template-columns:1fr} @media (max-width:780px){ .menu-panel.single{width:auto; max-width:none} }
+
+/* ---------- masthead: wordmark centered on the nav row ---------- */
+.masthead{display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:24px; row-gap:8px; align-items:center}
+.masthead-right{display:contents}
+.masthead .wordmark{grid-column:1; grid-row:1}
+.masthead nav{grid-column:2; grid-row:1; justify-self:end}
+.masthead .audience{grid-column:2; grid-row:2; justify-self:end}
+@media (max-width:780px){
+  .masthead{grid-template-columns:minmax(0,1fr); row-gap:12px}
+  .masthead nav{grid-column:1; grid-row:2; justify-self:start}
+  .masthead .audience{grid-column:1; grid-row:3; justify-self:start}
+}

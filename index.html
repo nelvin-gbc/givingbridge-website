@@ -372,6 +372,18 @@
     .reach dd{white-space:normal; overflow-wrap:anywhere}
     .folio{bottom:16px}
   }
+  /* ---------- masthead: wordmark centered on the nav row ---------- */
+  .masthead{display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:24px; row-gap:8px; align-items:center}
+  .masthead-right{display:contents}
+  .masthead .wordmark{grid-column:1; grid-row:1}
+  .masthead nav{grid-column:2; grid-row:1; justify-self:end}
+  .masthead .audience{grid-column:2; grid-row:2; justify-self:end}
+  @media (max-width:780px){
+    .masthead{grid-template-columns:minmax(0,1fr); row-gap:12px}
+    .masthead nav{grid-column:1; grid-row:2; justify-self:start}
+    .masthead .audience{grid-column:1; grid-row:3; justify-self:start}
+  }
+
 </style>
 
 <script type="application/ld+json">
