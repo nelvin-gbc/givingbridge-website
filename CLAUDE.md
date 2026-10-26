@@ -6,7 +6,7 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - GitHub `nelvin-gbc/givingbridge-website`, branch `main` → Netlify site `givingbridgeconsulting` (id `916e42ca-d9b7-4472-a208-e4a263f153ac`, team "GivingBridge Consulting + DBA").
 - Netlify auto-deploys on every push to `main`. No build step; publish dir is the repo root. `netlify.toml` hides repo files (CLAUDE.md, README.md, .gitignore, netlify.toml) with a 404 and sets security and cache headers. `404.html` is the branded not-found page.
 - `www.` 301-redirects to the apex domain.
-- Pushing to `main` publishes to the live site, so confirm with Nelvin before pushing.
+- Pushing to `main` publishes to the live site. Nelvin has approved pushing as part of each change (2026-10-25), so no confirmation is needed: commit, push, wait for the Netlify deploy to show `ready`, then spot-check the live pages.
 - Local preview: `python3 -m http.server 8765` from the repo root (config in `.claude/launch.json`).
 
 ## Structure
