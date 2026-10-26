@@ -1,0 +1,4 @@
+# Local-only: design explorations and Claude Code preview config
+concepts/
+.claude/
+.DS_Store
