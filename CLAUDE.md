@@ -25,7 +25,7 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Palette (A · Vermilion). Gold and cream were retired; don't reintroduce them.
   `--ink #1B3829` (deep green) · `--ink-deep #0F2219` · `--paper #FFFFFF` · `--paper-2 #EDF2EE` · `--accent #E4572E` (vermilion; text on it uses `--on-accent #0F2219`) · `--soft #CFE0D5` (celadon) · `--text #1D2420` · `--muted #66706A` · `--mid #2D5240`
 - Type: IBM Plex Serif (headings and body) + IBM Plex Mono (labels, nav, buttons, small data).
-- Logo: a tied-arch bridge (vermilion arch, two posts and a hairline deck in ink), redrawn from the original Cowork mark. Inline SVG in the header; source is `concepts/brand/mark.svg`; the favicon is the same drawing on a rounded green square.
+- Logo: the original GivingBridge "g" mark (hand-lettered g in a petal burst), used single-color, deep green in the header and white on green for the favicon, next to the IBM Plex Serif "GivingBridge" wordmark. Files: `assets/logo-g.svg` (green), `assets/logo-g-white.svg`, `assets/favicon.svg`, `assets/apple-touch-icon.png`, all converted from the vector PDFs in `~/Documents/Claude/Projects/GivingBridge Consulting/package_print_mhmi0api (1)/black/`. Don't use the original multicolor or yellow versions on the site.
 - Avoid the "AI-built" look: no uppercase letter-spaced eyebrow labels, icon-card grids, scroll fade-ins, gradients, vanity stats, or margin side notes.
 
 ## Integrations
