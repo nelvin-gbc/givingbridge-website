@@ -269,6 +269,35 @@
 
   .colophon a{color:var(--mid)}
 
+  [id]{scroll-margin-top:16px}
+  /* ---------- primary nav with Services dropdown ---------- */
+  .masthead nav{display:flex; gap:26px; flex-wrap:wrap; align-items:baseline}
+  .menu{position:relative}
+  .menu summary{list-style:none; cursor:pointer; font:400 13.5px/1.2 var(--mono); color:var(--mid); display:inline-flex; align-items:center; gap:6px}
+  .menu summary::-webkit-details-marker{display:none}
+  .menu summary::after{content:""; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:translateY(-2px) rotate(45deg); transition:transform .15s}
+  .menu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+  .menu summary:hover, .menu[open] summary, .menu summary.is-current{color:var(--ink)}
+  .menu summary.is-current{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+  .menu-panel{position:absolute; right:-16px; top:calc(100% + 14px); z-index:60; width:min(560px, calc(100vw - 32px)); background:var(--paper); border:1.5px solid var(--ink); box-shadow:0 10px 30px rgba(15,34,25,.12); display:grid; grid-template-columns:1fr 1fr}
+  .menu-col{padding:18px 20px 16px}
+  .menu-col + .menu-col{border-left:1px solid var(--rule-soft); background:var(--paper-2)}
+  .menu-col h4{margin:0 0 8px; font:500 12px/1.3 var(--mono); color:var(--muted)}
+  .masthead .menu-col a{display:block; padding:9px 0; border-bottom:1px solid var(--rule-soft); text-decoration:none; color:var(--ink); font:500 15px/1.3 var(--serif)}
+  .masthead .menu-col a:last-child{border-bottom:0}
+  .masthead .menu-col a small{display:block; font:400 12px/1.4 var(--mono); color:var(--muted); margin-top:3px}
+  .masthead .menu-col a:hover{color:var(--ink)}
+  .masthead .menu-col a:hover span{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+  .masthead .menu-col a .price{float:right; font:500 12px/1.6 var(--mono); color:var(--accent)}
+  .masthead nav > a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
+  @media (max-width:780px){
+    .masthead nav{gap:10px 20px}
+    .menu{position:static}
+    .masthead{position:relative}
+    .menu-panel{left:0; right:0; width:auto; top:auto; margin-top:12px; grid-template-columns:1fr}
+    .menu-col + .menu-col{border-left:0; border-top:1px solid var(--rule-soft)}
+  }
+
   /* ---------- responsive ---------- */
   @media (max-width:1080px){
     .ch{grid-template-columns:120px minmax(0,1fr); column-gap:36px}
@@ -336,14 +365,26 @@
       </a>
       <div class="masthead-right">
       <nav aria-label="Primary">
-        <a href="#diagnosis">Diagnosis</a>
-        <a href="#entries">Services</a>
-        <a href="#procedure">Process</a>
-        <a href="/health-check/">Health Check</a>
-        <a href="/resources/">Resources</a>
-        <a href="#author">About</a>
-        <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
-      </nav>
+          <details class="menu">
+            <summary>Services</summary>
+            <div class="menu-panel">
+              <div class="menu-col">
+                <h4>Work together</h4>
+                <a href="#fractional"><span>Fractional Development</span><small>Ongoing senior leadership</small></a>
+                <a href="#associate-boards"><span>Associate Board Development</span><small>Build or restructure</small></a>
+                <a href="#donor-strategy"><span>Donor Strategy</span><small>Project-based</small></a>
+              </div>
+              <div class="menu-col">
+                <h4>Start small</h4>
+                <a href="/health-check/"><b class="price">$79</b><span>Fundraising Health Check</span><small>Written diagnosis in 48 hours</small></a>
+                <a href="/sprint/"><b class="price">$1,200</b><span>Donor Strategy Sprint</span><small>Fixed scope, three weeks</small></a>
+              </div>
+            </div>
+          </details>
+          <a href="/resources/">Resources</a>
+          <a href="#author">About</a>
+          <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
+        </nav>
       <p class="audience">For nonprofit leaders, boards &amp; small development teams</p>
       </div>
     </div>
@@ -459,7 +500,7 @@
         <h2 id="h-entries">Three ways I work alongside your team.</h2>
         <p class="lede">Each entry below is a different kind of engagement. Some organizations need one. Some move from one to another as they grow.</p>
 
-        <article class="entry flagship">
+        <article class="entry flagship" id="fractional">
           <div class="entry-head">
             <span class="entry-id">Entry 2.1</span>
             <span class="entry-tag">Flagship engagement</span>
@@ -478,7 +519,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" id="associate-boards">
           <div class="entry-head"><span class="entry-id">Entry 2.2</span></div>
           <h3>Associate Board Development</h3>
           <dl class="scope">
@@ -494,7 +535,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" id="donor-strategy">
           <div class="entry-head"><span class="entry-id">Entry 2.3</span></div>
           <h3>Donor Strategy</h3>
           <dl class="scope">
@@ -755,5 +796,20 @@
   </footer>
 
 </div>
+<script>
+  // Land on the right section when arriving from another page (e.g. /#associate-boards)
+  window.addEventListener('load',function(){
+    if(!location.hash) return;
+    var t=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if(t) t.scrollIntoView({block:'start', behavior:'auto'});
+  });
+  // Close the Services menu on outside click or Escape
+  (function(){
+    var m=document.querySelector('.menu'); if(!m) return;
+    document.addEventListener('click',function(e){ if(m.open && !m.contains(e.target)) m.open=false; });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.open){ m.open=false; m.querySelector('summary').focus(); } });
+    m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+  })();
+</script>
 </body>
 </html>

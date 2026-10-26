@@ -390,3 +390,31 @@ figure{margin:0}
 .res-credit{font:400 12.5px/1.5 var(--mono); color:var(--muted); margin-top:22px}
 @media (max-width:1080px){ .res{grid-template-columns:1fr; gap:28px} .shot{max-width:640px} }
 .colophon a{color:var(--mid)}
+
+/* ---------- primary nav with Services dropdown ---------- */
+.masthead nav{display:flex; gap:26px; flex-wrap:wrap; align-items:baseline}
+.menu{position:relative}
+.menu summary{list-style:none; cursor:pointer; font:400 13.5px/1.2 var(--mono); color:var(--mid); display:inline-flex; align-items:center; gap:6px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary::after{content:""; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:translateY(-2px) rotate(45deg); transition:transform .15s}
+.menu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.menu summary:hover, .menu[open] summary, .menu summary.is-current{color:var(--ink)}
+.menu summary.is-current{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+.menu-panel{position:absolute; right:-16px; top:calc(100% + 14px); z-index:60; width:min(560px, calc(100vw - 32px)); background:var(--paper); border:1.5px solid var(--ink); box-shadow:0 10px 30px rgba(15,34,25,.12); display:grid; grid-template-columns:1fr 1fr}
+.menu-col{padding:18px 20px 16px}
+.menu-col + .menu-col{border-left:1px solid var(--rule-soft); background:var(--paper-2)}
+.menu-col h4{margin:0 0 8px; font:500 12px/1.3 var(--mono); color:var(--muted)}
+.masthead .menu-col a{display:block; padding:9px 0; border-bottom:1px solid var(--rule-soft); text-decoration:none; color:var(--ink); font:500 15px/1.3 var(--serif)}
+.masthead .menu-col a:last-child{border-bottom:0}
+.masthead .menu-col a small{display:block; font:400 12px/1.4 var(--mono); color:var(--muted); margin-top:3px}
+.masthead .menu-col a:hover{color:var(--ink)}
+.masthead .menu-col a:hover span{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+.masthead .menu-col a .price{float:right; font:500 12px/1.6 var(--mono); color:var(--accent)}
+.masthead nav > a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
+@media (max-width:780px){
+  .masthead nav{gap:10px 20px}
+  .menu{position:static}
+  .masthead{position:relative}
+  .menu-panel{left:0; right:0; width:auto; top:auto; margin-top:12px; grid-template-columns:1fr}
+  .menu-col + .menu-col{border-left:0; border-top:1px solid var(--rule-soft)}
+}

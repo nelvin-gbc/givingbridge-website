@@ -31,9 +31,22 @@
       </a>
       <div class="masthead-right">
         <nav aria-label="Primary">
-          <a href="/#entries">Services</a>
-          <a href="/health-check/">Health Check</a>
-          <a href="/sprint/" aria-current="page">Donor Sprint</a>
+          <details class="menu">
+            <summary class="is-current">Services</summary>
+            <div class="menu-panel">
+              <div class="menu-col">
+                <h4>Work together</h4>
+                <a href="/#fractional"><span>Fractional Development</span><small>Ongoing senior leadership</small></a>
+                <a href="/#associate-boards"><span>Associate Board Development</span><small>Build or restructure</small></a>
+                <a href="/#donor-strategy"><span>Donor Strategy</span><small>Project-based</small></a>
+              </div>
+              <div class="menu-col">
+                <h4>Start small</h4>
+                <a href="/health-check/"><b class="price">$79</b><span>Fundraising Health Check</span><small>Written diagnosis in 48 hours</small></a>
+                <a href="/sprint/"><b class="price">$1,200</b><span>Donor Strategy Sprint</span><small>Fixed scope, three weeks</small></a>
+              </div>
+            </div>
+          </details>
           <a href="/resources/">Resources</a>
           <a href="/#author">About</a>
           <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
@@ -219,5 +232,14 @@
   </footer>
 
 </div>
+<script>
+  // Close the Services menu on outside click or Escape
+  (function(){
+    var m=document.querySelector('.menu'); if(!m) return;
+    document.addEventListener('click',function(e){ if(m.open && !m.contains(e.target)) m.open=false; });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.open){ m.open=false; m.querySelector('summary').focus(); } });
+    m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+  })();
+</script>
 </body>
 </html>
