@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fundraising Health Check · [Organization]</title>
+<!--
+  HOW TO USE
+  1. Duplicate this file for each buyer (e.g. reports/2026-11-03-org-name.html). Don't commit filled-in reports.
+  2. Replace every [bracketed] item. Set each area's status by changing its class:
+     s-strong · s-steady · s-attention · s-priority
+  3. Open in Chrome → File → Print → Destination "Save as PDF", Paper "Letter", Margins "Default",
+     and turn ON "Background graphics". Then email the PDF.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B3829; --ink-deep:#0F2219; --paper:#FFFFFF; --paper-2:#EDF2EE;
+    --accent:#E4572E; --soft:#CFE0D5; --text:#1D2420; --muted:#66706A; --mid:#2D5240;
+    --rule:rgba(228,87,46,.7); --rule-soft:rgba(27,56,41,.16);
+    --serif:"IBM Plex Serif", Georgia, serif; --mono:"IBM Plex Mono", Menlo, monospace;
+  }
+  @page{size:letter; margin:0.6in 0.65in 0.7in}
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{margin:0; background:#9AA39D; color:var(--text); font:10.5pt/1.55 var(--serif)}
+  .page{width:8.5in; min-height:11in; margin:24px auto; background:#fff; padding:0.6in 0.65in 0.7in; position:relative; box-shadow:0 2px 18px rgba(0,0,0,.15)}
+  @media print{
+    body{background:#fff}
+    .page{margin:0; padding:0; width:auto; min-height:0; box-shadow:none; break-after:page}
+    .page:last-child{break-after:auto}
+  }
+  h1,h2,h3{color:var(--ink); font-weight:500; margin:0}
+  p{margin:0 0 .8em}
+  .mono{font-family:var(--mono)}
+  .k{font:400 8.5pt/1.4 var(--mono); color:var(--muted)}
+
+  /* running head */
+  .head{display:flex; justify-content:space-between; align-items:center; padding-bottom:10px; border-bottom:2.5px double var(--accent); margin-bottom:26px}
+  .head .wm{display:flex; align-items:center; gap:8px; font:600 12pt/1 var(--serif); color:var(--ink)}
+  .head .wm svg{width:38px; height:15px}
+  .head .meta{font:400 8pt/1.3 var(--mono); color:var(--muted); text-align:right}
+
+  /* cover */
+  .cover{display:flex; flex-direction:column; min-height:9.6in}
+  .cover .top{display:flex; align-items:center; gap:10px; font:600 15pt/1 var(--serif); color:var(--ink)}
+  .cover .top svg{width:56px; height:22px}
+  .cover .mid{margin-top:2.1in}
+  .cover .eyebrow{font:500 9.5pt/1 var(--mono); color:var(--accent); margin-bottom:14px}
+  .cover h1{font-size:38pt; line-height:1.02; letter-spacing:-.02em; max-width:9em}
+  .cover .for{font-size:15pt; margin-top:22px; color:var(--ink)}
+  .cover dl{margin:auto 0 0; display:grid; grid-template-columns:repeat(3,1fr); border-top:1.5px solid var(--ink); font-size:9.5pt}
+  .cover dl div{padding:12px 14px 0 0}
+  .cover dt{font:400 8pt/1.3 var(--mono); color:var(--muted); margin-bottom:4px}
+  .cover dd{margin:0; color:var(--ink)}
+
+  h2{font-size:19pt; line-height:1.15; letter-spacing:-.01em; margin-bottom:12px}
+  h2 .n{font:400 9pt/1 var(--mono); color:var(--muted); display:block; margin-bottom:8px; letter-spacing:0}
+  h3{font-size:12.5pt; line-height:1.25; margin:18px 0 6px}
+  .lede{font-size:12pt; line-height:1.5}
+  section{margin-bottom:26px; break-inside:avoid-page}
+
+  /* scorecard */
+  .score{width:100%; border-collapse:collapse; margin-top:10px; font-size:9.8pt}
+  .score th{text-align:left; font:500 8.5pt/1.3 var(--mono); color:var(--ink); background:var(--soft); padding:8px 10px; border-bottom:1.5px solid var(--ink)}
+  .score td{padding:10px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .score td:first-child{width:24%; font-weight:500; color:var(--ink)}
+  .score td:nth-child(2){width:22%}
+  .pill{display:inline-block; font:500 8pt/1 var(--mono); padding:5px 8px; border:1px solid currentColor}
+  .s-strong{color:#2D6A4A; background:#E3EFE7}
+  .s-steady{color:var(--mid); background:var(--paper)}
+  .s-attention{color:#9A5A12; background:#F8ECD9}
+  .s-priority{color:#fff; background:var(--accent); border-color:var(--accent)}
+
+  .callout{border-left:3px solid var(--accent); background:var(--paper); padding:14px 16px; margin:12px 0}
+  .callout .k{display:block; margin-bottom:6px}
+  .callout p:last-child{margin:0}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+
+  /* actions */
+  .actions{border-top:1.5px solid var(--ink); margin-top:8px}
+  .action{display:grid; grid-template-columns:34px 1fr; gap:12px; padding:14px 0; border-bottom:1px solid var(--rule-soft); break-inside:avoid}
+  .action .num{font:500 18pt/1 var(--serif); color:var(--accent)}
+  .action h3{margin:0 0 4px}
+  .action dl{display:flex; flex-wrap:wrap; gap:4px 18px; margin:8px 0 0; font:400 8.5pt/1.4 var(--mono)}
+  .action dt{color:var(--muted); display:inline}
+  .action dd{display:inline; margin:0 0 0 4px; color:var(--ink)}
+
+  .area-notes .area{padding:12px 0; border-bottom:1px solid var(--rule-soft); break-inside:avoid}
+  .area-notes .area:first-child{border-top:1.5px solid var(--ink)}
+  .area-notes .row{display:flex; justify-content:space-between; align-items:baseline; gap:12px}
+  .area-notes h3{margin:0 0 6px}
+
+  .checklist{list-style:none; padding:0; margin:8px 0 0}
+  .checklist li{display:grid; grid-template-columns:18px 1fr; gap:10px; padding:7px 0; border-bottom:1px dotted var(--rule)}
+  .checklist li::before{content:""; width:12px; height:12px; border:1.4px solid var(--accent); margin-top:4px}
+
+  .next{background:var(--ink); color:#FFFFFF; padding:22px 24px; margin-top:22px}
+  .next h2{color:#FFFFFF}
+  .next p{color:rgba(255,255,255,.85)}
+  .next a{color:#FFFFFF; text-decoration-color:var(--accent)}
+  .next .k{color:var(--soft)}
+  .foot{position:absolute; left:0.65in; right:0.65in; bottom:0.35in; display:flex; justify-content:space-between; font:400 7.5pt/1 var(--mono); color:var(--muted)}
+  @media print{ .foot{display:none} }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<div class="page">
+  <div class="cover">
+    <div class="top">
+      <svg viewBox="4 18 40 16" aria-hidden="true"><g fill="none" stroke-linecap="round"><path d="M18 23.5V32M30 23.5V32" stroke="#1B3829" stroke-width="1.75"/><path d="M6 32A22 22 0 0 1 42 32" stroke="#E4572E" stroke-width="2.75"/><path d="M6 32H42" stroke="#1B3829" stroke-width="1.75"/></g></svg>
+      GivingBridge
+    </div>
+    <div class="mid">
+      <div class="eyebrow">Fundraising Health Check</div>
+      <h1>An honest read on your fundraising.</h1>
+      <p class="for">Prepared for <b>[Organization]</b></p>
+    </div>
+    <dl>
+      <div><dt>Prepared for</dt><dd>[First Last], [Title]</dd></div>
+      <div><dt>Prepared by</dt><dd>Nelvin Johnson, GivingBridge Consulting</dd></div>
+      <div><dt>Date</dt><dd>[Month D, YYYY]</dd></div>
+    </dl>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 · SUMMARY ============ -->
+<div class="page">
+  <div class="head">
+    <div class="wm"><svg viewBox="4 18 40 16" aria-hidden="true"><g fill="none" stroke-linecap="round"><path d="M18 23.5V32M30 23.5V32" stroke="#1B3829" stroke-width="1.75"/><path d="M6 32A22 22 0 0 1 42 32" stroke="#E4572E" stroke-width="2.75"/><path d="M6 32H42" stroke="#1B3829" stroke-width="1.75"/></g></svg>GivingBridge</div>
+    <div class="meta">Fundraising Health Check<br>[Organization]</div>
+  </div>
+
+  <section>
+    <h2><span class="n">1 · The short version</span>[One-sentence headline, e.g. "Strong relationships, but nothing holding them in place."]</h2>
+    <p class="lede">[Two or three sentences in plain language. What's working, what's leaking, and the single most important thing to do next. Write it so an ED could forward this paragraph to their board.]</p>
+  </section>
+
+  <section>
+    <h3>Your scorecard</h3>
+    <table class="score">
+      <thead><tr><th>Area</th><th>Status</th><th>What your answers show</th></tr></thead>
+      <tbody>
+        <tr><td>Retention</td><td><span class="pill s-attention">Needs attention</span></td><td>[One line, e.g. "First-time donors rarely hear from you before the next appeal."]</td></tr>
+        <tr><td>Pipeline</td><td><span class="pill s-steady">Steady</span></td><td>[One line]</td></tr>
+        <tr><td>Board</td><td><span class="pill s-strong">Strong</span></td><td>[One line]</td></tr>
+        <tr><td>Rhythm</td><td><span class="pill s-priority">Priority</span></td><td>[One line]</td></tr>
+      </tbody>
+    </table>
+    <p class="k" style="margin-top:8px">Strong · Steady · Needs attention · Priority (the one to fix first)</p>
+  </section>
+
+  <section class="two">
+    <div class="callout">
+      <span class="k">Your strongest area</span>
+      <p><b>[Area].</b> [Why it's working, citing their answers. Two or three sentences. Name what to protect as you make changes.]</p>
+    </div>
+    <div class="callout" style="border-left-color:var(--ink)">
+      <span class="k">Your weakest link</span>
+      <p><b>[Area].</b> [What's happening, why it matters, and what it's likely costing them. Two or three sentences.]</p>
+    </div>
+  </section>
+
+  <div class="foot"><span>GivingBridge Consulting · Fundraising Health Check</span><span>2</span></div>
+</div>
+
+<!-- ============ PAGE 3 · THREE CHANGES ============ -->
+<div class="page">
+  <div class="head">
+    <div class="wm"><svg viewBox="4 18 40 16" aria-hidden="true"><g fill="none" stroke-linecap="round"><path d="M18 23.5V32M30 23.5V32" stroke="#1B3829" stroke-width="1.75"/><path d="M6 32A22 22 0 0 1 42 32" stroke="#E4572E" stroke-width="2.75"/><path d="M6 32H42" stroke="#1B3829" stroke-width="1.75"/></g></svg>GivingBridge</div>
+    <div class="meta">Fundraising Health Check<br>[Organization]</div>
+  </div>
+
+  <section>
+    <h2><span class="n">2 · Where to start</span>The three changes I'd make first.</h2>
+    <p>In order. If you only do one, do the first.</p>
+    <div class="actions">
+      <div class="action">
+        <span class="num">1</span>
+        <div>
+          <h3>[Action, written as an instruction, e.g. "Call every first-time donor within 48 hours of their gift."]</h3>
+          <p>[Why this one first, tied to their answers. What "done" looks like.]</p>
+          <dl><div><dt>Owner</dt><dd>[Role]</dd></div><div><dt>Effort</dt><dd>[Low / Medium / High]</dd></div><div><dt>Start</dt><dd>[This month]</dd></div></dl>
+        </div>
+      </div>
+      <div class="action">
+        <span class="num">2</span>
+        <div>
+          <h3>[Action]</h3>
+          <p>[Why, and what done looks like.]</p>
+          <dl><div><dt>Owner</dt><dd>[Role]</dd></div><div><dt>Effort</dt><dd>[Low / Medium / High]</dd></div><div><dt>Start</dt><dd>[Within 60 days]</dd></div></dl>
+        </div>
+      </div>
+      <div class="action">
+        <span class="num">3</span>
+        <div>
+          <h3>[Action]</h3>
+          <p>[Why, and what done looks like.]</p>
+          <dl><div><dt>Owner</dt><dd>[Role]</dd></div><div><dt>Effort</dt><dd>[Low / Medium / High]</dd></div><div><dt>Start</dt><dd>[This quarter]</dd></div></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Your first 30 days</h3>
+    <ul class="checklist">
+      <li>[Concrete task tied to action 1]</li>
+      <li>[Concrete task]</li>
+      <li>[Concrete task]</li>
+      <li>[Concrete task]</li>
+    </ul>
+  </section>
+
+  <div class="foot"><span>GivingBridge Consulting · Fundraising Health Check</span><span>3</span></div>
+</div>
+
+<!-- ============ PAGE 4 · AREA NOTES + NEXT ============ -->
+<div class="page">
+  <div class="head">
+    <div class="wm"><svg viewBox="4 18 40 16" aria-hidden="true"><g fill="none" stroke-linecap="round"><path d="M18 23.5V32M30 23.5V32" stroke="#1B3829" stroke-width="1.75"/><path d="M6 32A22 22 0 0 1 42 32" stroke="#E4572E" stroke-width="2.75"/><path d="M6 32H42" stroke="#1B3829" stroke-width="1.75"/></g></svg>GivingBridge</div>
+    <div class="meta">Fundraising Health Check<br>[Organization]</div>
+  </div>
+
+  <section class="area-notes">
+    <h2><span class="n">3 · Area by area</span>What I noticed.</h2>
+    <div class="area">
+      <div class="row"><h3>Retention</h3><span class="pill s-attention">Needs attention</span></div>
+      <p>[What their answers say, and what to watch. Three or four sentences. Reference specific answers, e.g. "You estimated fewer than 1 in 4 first-time donors give again…"]</p>
+    </div>
+    <div class="area">
+      <div class="row"><h3>Pipeline</h3><span class="pill s-steady">Steady</span></div>
+      <p>[Notes]</p>
+    </div>
+    <div class="area">
+      <div class="row"><h3>Board</h3><span class="pill s-strong">Strong</span></div>
+      <p>[Notes]</p>
+    </div>
+    <div class="area">
+      <div class="row"><h3>Rhythm</h3><span class="pill s-priority">Priority</span></div>
+      <p>[Notes]</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <span class="k">If you want help</span>
+    <h2 style="margin-top:8px">Turn this into a working plan in three weeks.</h2>
+    <p>The Donor Strategy Sprint builds your donor segments, a donor journey map, and a 90-day engagement calendar, then walks your team through it. $1,200 flat. Details at <a href="https://givingbridgeconsulting.com/sprint/">givingbridgeconsulting.com/sprint</a>.</p>
+    <p style="margin:0">Questions about this report? Reply to my email or book 15 minutes: <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9">calendar.app.google/1Do2GPcDJhYSkQES9</a></p>
+  </div>
+
+  <div class="foot"><span>GivingBridge Consulting · Fundraising Health Check</span><span>4</span></div>
+</div>
+
+</body>
+</html>

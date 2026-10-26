@@ -20,11 +20,11 @@
 <meta name="description" content="Fractional fundraising leadership for nonprofits. GivingBridge Consulting helps teams build the infrastructure, clarity, and roadmap to turn goodwill into lasting support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@700&family=Syne:wght@700&display=swap" rel="stylesheet">
 <style>
   /* ---------- palette (A · Vermilion) ---------- */
   :root{
-    --ink:#1B3829; --ink-deep:#0F2219; --paper:#F3F2EE; --paper-2:#E6E8E2;
+    --ink:#1B3829; --ink-deep:#0F2219; --paper:#FFFFFF; --paper-2:#EDF2EE;
     --accent:#E4572E; --on-accent:#0F2219; --soft:#CFE0D5; --on-soft:#1B3829;
     --text:#1D2420; --muted:#66706A;
   }
@@ -164,7 +164,7 @@
   /* ---------- field entries ---------- */
   .entry{padding:38px 0 40px; border-top:1px solid var(--rule)}
   .entry:first-of-type{border-top:1.5px solid var(--ink)}
-  .entry.flagship{background:var(--paper-2); margin:0 -28px; padding-left:28px; padding-right:28px; border-top-color:var(--ink)}
+  .entry.flagship{border-top-color:var(--ink)}
   .entry-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:16px}
   .entry-id{font:400 12.5px/1 var(--mono); color:var(--muted)}
   .entry-tag{font:500 12px/1 var(--mono); color:var(--ink); border:1px solid var(--ink); padding:5px 8px}
@@ -233,12 +233,41 @@
   .reach dd{margin:0; font-size:13.5px; color:var(--paper); white-space:nowrap}
   .reach a{color:var(--paper); text-decoration-color:var(--accent)}
 
+  /* ---------- sector resources (Tovera, Nonprofit AI Brief) ---------- */
+  .res-list{border-top:1.5px solid var(--ink); margin-top:8px}
+  .res{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:48px; padding:40px 0 44px; border-bottom:1px solid var(--rule-soft); align-items:start}
+  .res-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px}
+  .res-brand img, .res-brand svg{width:40px; height:40px; flex:none; border-radius:9px}
+  .res-brand .nm{font-size:1.5rem; line-height:1.1; letter-spacing:-.01em}
+  .res-tovera .nm{font-family:"Syne", var(--serif); font-weight:700; color:#1A1A2E}
+  .res-brief .nm{font-family:"Space Grotesk", var(--serif); font-weight:700; color:#17120F}
+  .res-line{font-size:1.28rem; line-height:1.35; color:var(--ink); margin:0 0 14px; max-width:24em}
+  .res-line mark{background:none; padding:0 .05em}
+  .res-tovera .res-line mark{color:#5546E0; background:linear-gradient(transparent 62%, rgba(217,236,92,.7) 62%)}
+  .res-brief .res-line mark{color:#C1442C}
+  .res .scope{margin-top:20px}
+  .res-actions{display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-top:22px}
+  .btn-tovera{background:#5546E0; border-color:#5546E0; color:#fff}
+  .btn-tovera:hover{background:#3F31C4; border-color:#3F31C4}
+  .btn-brief{background:#C1442C; border-color:#C1442C; color:#fff}
+  .btn-brief:hover{background:#A3361F; border-color:#A3361F}
+  .shot{margin:0; border:1px solid var(--rule-soft); background:#fff; box-shadow:0 1px 0 var(--rule-soft)}
+  .shot .bar{display:flex; gap:6px; align-items:center; padding:8px 10px; border-bottom:1px solid var(--rule-soft); font:400 11.5px/1 var(--mono); color:var(--muted)}
+  .shot .bar i{width:8px; height:8px; border-radius:50%; background:var(--paper-2); display:block}
+  .shot .bar span{margin-left:8px}
+  .shot img{width:100%; height:auto; aspect-ratio:1400/820; object-fit:cover; object-position:top}
+  .shot figcaption{font:400 12px/1.5 var(--mono); color:var(--mid); padding:10px 0 0; border-top:1.5px solid var(--accent); background:var(--paper)}
+  .res-credit{font:400 12.5px/1.5 var(--mono); color:var(--muted); margin-top:22px}
+  @media (max-width:1080px){ .res{grid-template-columns:1fr; gap:28px} .shot{max-width:640px} }
+
   /* ---------- colophon ---------- */
   .colophon{
     border-top:3px double var(--accent); padding:22px 0 64px;
     display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
     font:400 12px/1.6 var(--mono); color:var(--muted);
   }
+
+  .colophon a{color:var(--mid)}
 
   /* ---------- responsive ---------- */
   @media (max-width:1080px){
@@ -279,7 +308,6 @@
     .fig .scroll{overflow-x:auto}
     .fig .scroll svg{min-width:560px}
 
-    .entry.flagship{margin:0 -16px; padding-left:16px; padding-right:16px}
     .scope div{grid-template-columns:92px 1fr}
 
     .checklist li{grid-template-columns:30px minmax(0,1fr); }
@@ -311,6 +339,8 @@
         <a href="#diagnosis">Diagnosis</a>
         <a href="#entries">Services</a>
         <a href="#procedure">Process</a>
+        <a href="/health-check/">Health Check</a>
+        <a href="/resources/">Resources</a>
         <a href="#author">About</a>
         <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
       </nav>
@@ -342,7 +372,8 @@
             <li><a href="#entries"><span class="c">Ch. 2</span><span class="t">Field entries: how I work with you</span></a></li>
             <li><a href="#procedure"><span class="c">Ch. 3</span><span class="t">Procedure: getting started</span></a></li>
             <li><a href="#author"><span class="c">Ch. 4</span><span class="t">About the author</span></a></li>
-            <li><a href="#contact"><span class="c">Ch. 5</span><span class="t">Getting in touch</span></a></li>
+            <li><a href="#resources"><span class="c">Ch. 5</span><span class="t">Built for the sector</span></a></li>
+            <li><a href="#contact"><span class="c">Ch. 6</span><span class="t">Getting in touch</span></a></li>
           </ol>
         </nav>
       </div>
@@ -467,7 +498,7 @@
           <div class="entry-head"><span class="entry-id">Entry 2.3</span></div>
           <h3>Donor Strategy</h3>
           <dl class="scope">
-            <div><dt>Format</dt><dd>Project-based</dd></div>
+            <div><dt>Format</dt><dd>Project-based · <a href="/sprint/">3-week Donor Strategy Sprint, $1,200 flat</a></dd></div>
             <div><dt>Best for</dt><dd>Teams who want fewer reactive asks and a clear plan for their most important relationships</dd></div>
           </dl>
           <p>We look hard at who your donors are and design what should happen next for each of them, at a pace your team can keep.</p>
@@ -477,6 +508,7 @@
             <li>An engagement cadence sized to your team's real capacity</li>
             <li>Fewer reactive, last-minute asks</li>
           </ul>
+          <p style="margin-top:18px">Not sure where to start? The <a href="/health-check/">$79 Fundraising Health Check</a> gives you a written diagnosis in 48 hours.</p>
 
           <figure class="fig">
             <div class="scroll">
@@ -573,7 +605,7 @@
             <h2 id="h-author">I came to this work on purpose.</h2>
             <p>I started my career in the for-profit world, and I left it intentionally. I wanted work that was more honest and more centered on people. So I went looking for mentors and practitioners who knew the nonprofit sector from the inside, and I learned from them.</p>
             <p>Since then I've worked hands-on with many nonprofits and earned an M.S. in Nonprofit Management along the way. What I've learned is that good fundraising is relational before it's anything else, and it only lasts when it's built with intention.</p>
-            <p>That's how I try to work, too.</p>
+            <p>That's how I try to work, too. It's also why I built two free resources for the sector: <a href="#resources">Tovera</a> and <a href="#resources">The Nonprofit AI Brief</a>.</p>
             <p class="aside"><b>† Worth knowing.</b> You work with me directly, from the first call to the last deliverable. No hand-off to a junior associate.</p>
           </div>
         </div>
@@ -587,8 +619,62 @@
     </section>
 
     <!-- CH 5 -->
+    <section class="ch ch-wide" id="resources" aria-labelledby="h-resources">
+      <div class="ch-meta"><span class="num">Ch. 5</span><span class="name">Built for the sector</span></div>
+      <div class="ch-body">
+        <h2 id="h-resources">Two free resources I built for people doing this work.</h2>
+        <p class="lede">Outside of client work, I build tools that make nonprofit professionals' lives a little easier. Both are free, and both keep me close to what the sector is learning right now.</p>
+
+        <div class="res-list">
+          <article class="res res-tovera">
+            <div>
+              <div class="res-brand"><img src="/assets/resources/tovera-mark.png" alt="" width="40" height="40"><span class="nm">Tovera</span></div>
+              <p class="res-line">Every nonprofit event <mark>in one place.</mark></p>
+              <p>A free, curated calendar of conferences, webinars, workshops, and networking events for the nonprofit sector across the U.S. and Canada. Every listing is checked against the organizer's own page, and no one can pay for placement.</p>
+              <dl class="scope">
+                <div><dt>Listings</dt><dd>500+ upcoming events from 160+ sources</dd></div>
+                <div><dt>Filters</dt><dd>Topic, free, virtual, CFRE credit</dd></div>
+                <div><dt>Email</dt><dd>A handpicked list every Tuesday</dd></div>
+              </dl>
+              <div class="res-actions">
+                <a class="btn btn-tovera" href="https://tovera.org" target="_blank" rel="noopener">Visit tovera.org →</a>
+                <a class="link-quiet" href="/resources/#tovera">Why I built it</a>
+              </div>
+            </div>
+            <figure class="shot">
+              <div class="bar"><i></i><i></i><i></i><span>tovera.org</span></div>
+              <img src="/assets/resources/tovera.jpg" alt="The Tovera homepage: a search bar and filters for nonprofit events by type and topic" loading="lazy" width="1400" height="820">
+            </figure>
+          </article>
+
+          <article class="res res-brief">
+            <div>
+              <div class="res-brand"><img src="/assets/resources/brief-mark.png" alt="" width="40" height="40"><span class="nm">The Nonprofit AI Brief</span></div>
+              <p class="res-line">AI for nonprofits, <mark>every morning.</mark></p>
+              <p>Each day, the most useful news on AI in nonprofits, philanthropy, and social impact, translated into plain English: what it means for your mission and what to do about it. No hype, no doom, no jargon.</p>
+              <dl class="scope">
+                <div><dt>Reads</dt><dd>51 trusted sources, every morning</dd></div>
+                <div><dt>For</dt><dd>Nonprofit and foundation teams, funders, consultants</dd></div>
+                <div><dt>Email</dt><dd>The week's best, every Friday</dd></div>
+              </dl>
+              <div class="res-actions">
+                <a class="btn btn-brief" href="https://nonprofitaibrief.org" target="_blank" rel="noopener">Read the Brief →</a>
+                <a class="link-quiet" href="/resources/#brief">Why I built it</a>
+              </div>
+            </div>
+            <figure class="shot">
+              <div class="bar"><i></i><i></i><i></i><span>nonprofitaibrief.org</span></div>
+              <img src="/assets/resources/nonprofitaibrief.jpg" alt="The Nonprofit AI Brief homepage: the headline about AI leveling the playing field and a signup form" loading="lazy" width="1400" height="820">
+            </figure>
+          </article>
+        </div>
+        <p class="res-credit">Both built and run by Nelvin Johnson. Free to use, always.</p>
+      </div>
+    </section>
+
+    <!-- CH 6 -->
     <section class="ch ch-wide ch-close" id="contact" aria-labelledby="h-contact">
-      <div class="ch-meta"><span class="num">Ch. 5</span><span class="name">Getting in touch</span></div>
+      <div class="ch-meta"><span class="num">Ch. 6</span><span class="name">Getting in touch</span></div>
       <div class="ch-body">
         <div class="close">
           <div class="close-left">
@@ -617,7 +703,7 @@
                   target: "#hs-contact",
                   css: "",
                   submitText: "Send message →",
-                  inlineMessage: "<p style='color:#F3F2EE;font-family:Georgia,serif;font-size:18px;margin:0'>Thanks. I'll be in touch shortly.</p>",
+                  inlineMessage: "<p style='color:#FFFFFF;font-family:Georgia,serif;font-size:18px;margin:0'>Thanks. I'll be in touch shortly.</p>",
                   cssRequired: `
                     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400&display=swap');
                     body { background: transparent !important; margin: 0; }
@@ -632,26 +718,26 @@
                     .hs-form-required { color: #E4572E !important; }
                     input:not([type=submit]):not([type=checkbox]):not([type=radio]), select, textarea {
                       width: 100% !important; box-sizing: border-box !important;
-                      background: rgba(243,242,238,0.07) !important;
-                      border: 1px solid rgba(243,242,238,0.24) !important; border-radius: 0 !important;
+                      background: rgba(255,255,255,0.07) !important;
+                      border: 1px solid rgba(255,255,255,0.24) !important; border-radius: 0 !important;
                       padding: 12px 14px !important; height: auto !important; line-height: 1.4 !important;
                       font: 400 16px/1.4 'IBM Plex Serif', Georgia, serif !important;
-                      color: #F3F2EE !important; caret-color: #E4572E !important;
+                      color: #FFFFFF !important; caret-color: #E4572E !important;
                     }
-                    input:focus, select:focus, textarea:focus { outline: none !important; border-color: #E4572E !important; background: rgba(243,242,238,0.1) !important; }
-                    input::placeholder, textarea::placeholder { color: rgba(243,242,238,0.4) !important; }
-                    select option { background: #1B3829 !important; color: #F3F2EE !important; }
+                    input:focus, select:focus, textarea:focus { outline: none !important; border-color: #E4572E !important; background: rgba(255,255,255,0.1) !important; }
+                    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4) !important; }
+                    select option { background: #1B3829 !important; color: #FFFFFF !important; }
                     textarea { min-height: 120px !important; resize: vertical; }
                     input[type=submit], .hs-button {
                       background: #E4572E !important; color: #0F2219 !important; border: 1px solid #E4572E !important;
                       border-radius: 0 !important; padding: 15px 22px !important; cursor: pointer !important;
                       font: 500 15px/1 'IBM Plex Mono', monospace !important;
                     }
-                    input[type=submit]:hover, .hs-button:hover { background: #F3F2EE !important; border-color: #F3F2EE !important; }
+                    input[type=submit]:hover, .hs-button:hover { background: #FFFFFF !important; border-color: #FFFFFF !important; }
                     .hs-error-msgs { list-style: none; padding: 0; margin: 6px 0 0; }
                     .hs-error-msg, .hs-main-font-element { color: #F2A48C !important; font: 400 12.5px 'IBM Plex Mono', monospace !important; }
                     .hs-form__virality-link { display: none !important; }
-                    .hs-richtext, .legal-consent-container, .hs-form-booleancheckbox-display > span p { color: rgba(243,242,238,0.6) !important; font-size: 12px !important; }
+                    .hs-richtext, .legal-consent-container, .hs-form-booleancheckbox-display > span p { color: rgba(255,255,255,0.6) !important; font-size: 12px !important; }
                   `
                 });
               })();
@@ -664,8 +750,8 @@
   </main>
 
   <footer class="colophon">
-    <span>© 2026 Giving Bridge Consulting LLC · East Northport, NY</span>
-    <span>Set in IBM Plex Serif &amp; IBM Plex Mono</span>
+    <span>© 2025 Giving Bridge Consulting LLC · East Northport, NY</span>
+    <span>Also by Nelvin: <a href="https://tovera.org" target="_blank" rel="noopener">Tovera</a> · <a href="https://nonprofitaibrief.org" target="_blank" rel="noopener">The Nonprofit AI Brief</a></span>
   </footer>
 
 </div>
