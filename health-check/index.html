@@ -191,7 +191,17 @@
               </div>
             </div>
           </details>
-          <a href="/resources/">Resources</a>
+          <details class="menu">
+            <summary>Resources</summary>
+            <div class="menu-panel single">
+              <div class="menu-col">
+                <h4>Free, built by Nelvin</h4>
+                <a href="/resources/#tovera"><span>Tovera</span><small>Every nonprofit event in one place</small></a>
+                <a href="/resources/#brief"><span>The Nonprofit AI Brief</span><small>AI for nonprofits, every morning</small></a>
+                <a href="/resources/"><span>All resources</span><small>Why I built them</small></a>
+              </div>
+            </div>
+          </details>
           <a href="/#author">About</a>
           <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
         </nav>
@@ -228,8 +238,8 @@
             <a class="btn btn-accent" href="STRIPE_PAYMENT_LINK">Get my Health Check →</a>
             <p class="fine">Secure checkout by Stripe. You'll go straight to the questionnaire after paying.</p>
             -->
-            <a class="btn btn-accent" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call to get started →</a>
-            <p class="fine">Online checkout is coming soon. Book a quick call and I'll set up your Health Check directly.</p>
+            <a class="btn btn-accent" href="mailto:nelvin@givingbridgeconsulting.com?subject=Fundraising%20Health%20Check&amp;body=Hi%20Nelvin%2C%0A%0AI%27d%20like%20a%20Fundraising%20Health%20Check%20for%20my%20organization.%0A%0AOrganization%3A%20%0AWebsite%3A%20%0A%0AThanks%21">Email me to get started →</a>
+            <p class="fine">Send a quick email and I'll reply with the questionnaire and a $79 invoice. No call needed. If you'd rather talk first, <a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">book 15 minutes</a>.</p>
           </aside>
         </div>
       </div>
@@ -274,7 +284,7 @@
         <ol class="checklist">
           <li>
             <span class="box" aria-hidden="true"></span>
-            <div><h3><span class="s">1</span>Get started</h3><p>Book a quick call or reach out by email, and I'll send you the questionnaire and a $79 invoice.</p></div>
+            <div><h3><span class="s">1</span>Send an email</h3><p>Email me with your organization's name. I'll reply with the questionnaire link and a $79 invoice.</p></div>
             <span class="out">2 minutes</span>
           </li>
           <li>
@@ -363,8 +373,8 @@
           </div>
           <div>
             <dl class="reach">
-              <div><dt>Questions</dt><dd><a href="mailto:nelvin@givingbridgeconsulting.com">nelvin@givingbridgeconsulting.com</a></dd></div>
-              <div><dt>Talk first</dt><dd><a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a free 15-minute call</a></dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:nelvin@givingbridgeconsulting.com">nelvin@givingbridgeconsulting.com</a></dd></div>
+              <div><dt>Optional</dt><dd><a href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a free 15-minute call</a></dd></div>
             </dl>
           </div>
         </div>
@@ -380,13 +390,22 @@
 
 </div>
 <script>
-  // Close the Services menu on outside click or Escape
+  // Dropdown menus: one open at a time; close on outside click, link click or Escape
   (function(){
-    var m=document.querySelector('.menu'); if(!m) return;
-    document.addEventListener('click',function(e){ if(m.open && !m.contains(e.target)) m.open=false; });
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.open){ m.open=false; m.querySelector('summary').focus(); } });
-    m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+    var menus=[].slice.call(document.querySelectorAll('.menu'));
+    menus.forEach(function(m){
+      m.addEventListener('toggle',function(){ if(m.open) menus.forEach(function(o){ if(o!==m) o.open=false; }); });
+      m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+    });
+    document.addEventListener('click',function(e){ menus.forEach(function(m){ if(m.open && !m.contains(e.target)) m.open=false; }); });
+    document.addEventListener('keydown',function(e){ if(e.key!=='Escape') return; menus.forEach(function(m){ if(m.open){ m.open=false; m.querySelector('summary').focus(); } }); });
   })();
+  // Land on the right section when arriving from another page (e.g. /resources/#tovera)
+  window.addEventListener('load',function(){
+    if(!location.hash) return;
+    var t=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if(t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 16, behavior:'instant'});
+  });
 </script>
 </body>
 </html>

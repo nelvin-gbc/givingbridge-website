@@ -278,7 +278,7 @@ figure{margin:0}
 .masthead nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
 
 .offer-hero{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:56px; align-items:start}
-.offer-hero h1{font-size:clamp(2.5rem,5.4vw,4.3rem); line-height:1.04; letter-spacing:-.02em; max-width:17ch; margin-bottom:26px}
+.offer-hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem); line-height:1.04; letter-spacing:-.02em; max-width:17ch; margin-bottom:26px}
 .offer-hero .intro{font-size:1.18rem; max-width:32em}
 .kicker{font:400 13px/1.4 var(--mono); color:var(--mid); margin:0 0 18px}
 .kicker b{color:var(--ink); font-weight:500}
@@ -418,3 +418,4 @@ figure{margin:0}
   .menu-panel{left:0; right:0; width:auto; top:auto; margin-top:12px; grid-template-columns:1fr}
   .menu-col + .menu-col{border-left:0; border-top:1px solid var(--rule-soft)}
 }
+.menu-panel.single{width:min(320px, calc(100vw - 32px)); grid-template-columns:1fr}

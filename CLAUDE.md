@@ -11,13 +11,13 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 
 ## Structure
 - `index.html`: the whole homepage, with inline `<style>` and no build. It uses the "Field Guide" design (Oct 2026 brand refresh): a printed-manual feel with chapters.
-  - Sections: `header .masthead` (wordmark, nav, audience line) → `.preface` hero + contents → `#diagnosis` (Ch. 1, symptoms table + reactive/steady diagram) → `#entries` (Ch. 2, three services as "field entries" + donor journey diagram) → `#procedure` (Ch. 3, checklist) → `#author` (Ch. 4, portrait + bio + facts row) → `#contact` (Ch. 5, dark band with booking button, contact list, HubSpot form) → `.colophon` footer.
+  - Sections: `header .masthead` (wordmark, nav, audience line) → `.preface` hero + contents → `#diagnosis` (Ch. 1, symptoms table + reactive/steady diagram) → `#entries` (Ch. 2, three services as "field entries" + donor journey diagram) → `#procedure` (Ch. 3, checklist) → `#author` (Ch. 4, portrait + bio + facts row) → `#faq` (Ch. 5, eight FAQs, mirrored in JSON-LD and llms.txt) → `#contact` (Ch. 6, dark band with booking button, contact list, HubSpot form) → `.colophon` footer.
   - Breakpoints: 1080px and 780px.
 - Other pages (all use `assets/site.css`, which copies the homepage's inline styles plus offer and resource styles; keep both in sync):
-  - `health-check/`: $79 Fundraising Health Check offer. The buy button is a Stripe Payment Link (not created yet: the button temporarily books a call, and the Stripe version is kept in an HTML comment beside it, along with step 1 of "How it works"); Stripe redirects to `health-check/questionnaire/?session_id={CHECKOUT_SESSION_ID}`.
+  - `health-check/`: $79 Fundraising Health Check offer. The buy button is a Stripe Payment Link (not created yet: the button is temporarily email-first, with a prefilled mailto and an optional call link, and the Stripe version is kept in an HTML comment beside it; step 1 of "How it works" also needs updating at swap time). Nelvin wants this offer email-forward, with calls always optional, because calls add friction; Stripe redirects to `health-check/questionnaire/?session_id={CHECKOUT_SESSION_ID}`.
   - `health-check/questionnaire/`: Netlify Form `health-check` (needs form detection enabled in Netlify), posts to `health-check/thanks/`. Stores `stripe_session_id`. noindex.
   - `sprint/`: $1,200 / 3-week Donor Strategy Sprint. CTA is a scoping call; invoiced after.
-  - `resources/`: detailed, branded write-ups of Tovera (tovera.org) and The Nonprofit AI Brief (nonprofitaibrief.org). Credit line is Nelvin's name; public figures only; those sites do not link back. Homepage Ch. 5 is the short version.
+  - `resources/`: detailed, branded write-ups of Tovera (tovera.org) and The Nonprofit AI Brief (nonprofitaibrief.org). Credit line is Nelvin's name; public figures only; those sites do not link back. Not on the homepage; it lives only on /resources/, which the nav links to through a Resources dropdown.
 - `assets/`: `nelvin.jpg` (headshot, 1000px), `favicon.svg`, `apple-touch-icon.png` (180), `og-image.jpg` (1200×630 link preview), `site.css`, `resources/` (screenshots and logo crops of Tovera and the Brief).
 - `concepts/` is gitignored: local design explorations (four concepts, the brand board, logo source files in `concepts/brand/`). Never deploy it.
 

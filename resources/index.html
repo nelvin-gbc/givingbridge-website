@@ -237,7 +237,17 @@
               </div>
             </div>
           </details>
-          <a href="/resources/" aria-current="page">Resources</a>
+          <details class="menu">
+            <summary class="is-current">Resources</summary>
+            <div class="menu-panel single">
+              <div class="menu-col">
+                <h4>Free, built by Nelvin</h4>
+                <a href="/resources/#tovera"><span>Tovera</span><small>Every nonprofit event in one place</small></a>
+                <a href="/resources/#brief"><span>The Nonprofit AI Brief</span><small>AI for nonprofits, every morning</small></a>
+                <a href="/resources/"><span>All resources</span><small>Why I built them</small></a>
+              </div>
+            </div>
+          </details>
           <a href="/#author">About</a>
           <a class="book" href="https://calendar.app.google/1Do2GPcDJhYSkQES9" target="_blank" rel="noopener">Book a call</a>
         </nav>
@@ -391,13 +401,22 @@
 
 </div>
 <script>
-  // Close the Services menu on outside click or Escape
+  // Dropdown menus: one open at a time; close on outside click, link click or Escape
   (function(){
-    var m=document.querySelector('.menu'); if(!m) return;
-    document.addEventListener('click',function(e){ if(m.open && !m.contains(e.target)) m.open=false; });
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.open){ m.open=false; m.querySelector('summary').focus(); } });
-    m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+    var menus=[].slice.call(document.querySelectorAll('.menu'));
+    menus.forEach(function(m){
+      m.addEventListener('toggle',function(){ if(m.open) menus.forEach(function(o){ if(o!==m) o.open=false; }); });
+      m.querySelectorAll('.menu-panel a').forEach(function(a){ a.addEventListener('click',function(){ m.open=false; }); });
+    });
+    document.addEventListener('click',function(e){ menus.forEach(function(m){ if(m.open && !m.contains(e.target)) m.open=false; }); });
+    document.addEventListener('keydown',function(e){ if(e.key!=='Escape') return; menus.forEach(function(m){ if(m.open){ m.open=false; m.querySelector('summary').focus(); } }); });
   })();
+  // Land on the right section when arriving from another page (e.g. /resources/#tovera)
+  window.addEventListener('load',function(){
+    if(!location.hash) return;
+    var t=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if(t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 16, behavior:'instant'});
+  });
 </script>
 </body>
 </html>
