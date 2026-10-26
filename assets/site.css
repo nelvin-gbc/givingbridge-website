@@ -46,7 +46,7 @@ p{margin:0 0 1em}
   padding:22px 0 18px;
   border-bottom:3px double var(--accent);
 }
-.wordmark{text-decoration:none; color:var(--ink); display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.wordmark{text-decoration:none; color:var(--ink); display:flex; align-items:center; gap:10px; flex-wrap:wrap}
 .wordmark b{font:600 26px/1 var(--serif); letter-spacing:-.01em}
 .wordmark img.mark{width:38px; height:auto; flex:none; align-self:center}
 .wordmark small{font:400 12px/1 var(--mono); color:var(--muted)}
