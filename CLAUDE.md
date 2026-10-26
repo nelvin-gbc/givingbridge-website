@@ -32,3 +32,10 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Contact form: HubSpot embed (portal `244971559`, form `0434ccc6-e3a0-4eb1-a9cb-2956ae966a48`, region `na2`), rendered into `#hs-contact` and styled through `cssRequired` for the dark band. The account is on paid Starter (Sales + Service), which covers removing HubSpot branding, so `cssRequired` hides the embed's `.hs-form__virality-link`.
 - Booking: Google Calendar appointment link `https://calendar.app.google/1Do2GPcDJhYSkQES9`.
 - LinkedIn: company page `giving-bridge-consulting`.
+
+## Search, AI visibility and security
+- `robots.txt` allows all crawlers, including AI ones (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, …), and blocks the questionnaire, thanks and `_internal` pages. `sitemap.xml` lists the 4 public pages (update `lastmod` when pages change). `llms.txt` is a plain-language summary for AI assistants; keep services, prices and facts in sync with the pages.
+- Every public page has JSON-LD (`@graph`): Organization/ProfessionalService, Person (Nelvin), Service + Offer (with prices), WebSite entries for Tovera and the Brief, FAQPage (generated from the visible `<details>` FAQs; regenerate if the FAQ text changes), and BreadcrumbList on subpages. Only state facts that are visible on the site.
+- `netlify.toml` sets a CSP allowing only self, Google Fonts and the HubSpot form (js-na2.hsforms.net, forms-na2.hsforms.com), plus HSTS, X-Frame-Options DENY, Permissions-Policy, COOP and nosniff. **If you add a third-party script, embed or font, add its domain to the CSP** or it will be blocked. Test CSP changes with a draft deploy (`netlify deploy --dir .`) before pushing.
+- `/.well-known/security.txt` lists the security contact (expires 2027-10-25; renew it).
+- No database or user accounts, so database row-level security (RLS) doesn't apply to this site.

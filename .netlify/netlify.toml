@@ -1,0 +1,153 @@
+headersOrigin = "config"
+redirectsOrigin = "config"
+plugins = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/nelvinjohnson/Documents/Claude/Projects/givingbridge-website"
+publishOrigin = "config"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://js-na2.hsforms.net https://js.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://*.hsforms.com https://*.hsforms.net https://*.hubspot.com https://*.hubspotusercontent-na2.net; connect-src 'self' https://*.hsforms.com https://*.hsforms.net https://*.hubspot.com https://*.hubapi.com; frame-src 'self' https://*.hsforms.com https://*.hsforms.net https://*.hubspot.com; form-action 'self' https://*.hsforms.com https://*.hubspot.com; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+Cross-Origin-Opener-Policy = "same-origin"
+X-Permitted-Cross-Domain-Policies = "none"
+
+[[headers]]
+for = "/health-check/questionnaire/*"
+
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
+Cache-Control = "no-store"
+
+[[headers]]
+for = "/health-check/thanks/*"
+
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+for = "/*.html"
+
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/"
+
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/assets/*"
+
+[headers.values]
+Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[redirects]]
+from = "/_internal/*"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/concepts/*"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/CLAUDE.md"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/README.md"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/.gitignore"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/netlify.toml"
+to = "/404.html"
+status = 404.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/index.html"
+to = "/"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

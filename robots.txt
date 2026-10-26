@@ -1,0 +1,26 @@
+# GivingBridge Consulting: givingbridgeconsulting.com
+# Everyone, including AI search and answer engines, is welcome to read the public site.
+User-agent: *
+Allow: /
+Disallow: /health-check/questionnaire/
+Disallow: /health-check/thanks/
+Disallow: /_internal/
+
+# AI assistants and answer engines (explicitly allowed)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+Allow: /
+Disallow: /health-check/questionnaire/
+Disallow: /health-check/thanks/
+Disallow: /_internal/
+
+Sitemap: https://givingbridgeconsulting.com/sitemap.xml
