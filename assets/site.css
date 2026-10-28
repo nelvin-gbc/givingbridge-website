@@ -502,5 +502,6 @@ figure{margin:0}
 
 /* ---------- comfortable line length everywhere (~65–70 characters) ---------- */
 .ch-body p, .ch-body li, .ch-body dd{max-width:36em}
-.ch-body .scope, .ch-body .facts{max-width:620px}
+.ch-body .scope{max-width:620px}
+.ch-body .facts dd{max-width:none}
 .ch-body .entry ul{max-width:36em}
