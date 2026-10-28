@@ -433,3 +433,18 @@ figure{margin:0}
 }
 
 .area:last-child:nth-child(odd){grid-column:1 / -1; padding-right:0}
+
+/* Services menu grouped by topic (2x2) */
+.menu-panel.groups{width:min(600px, calc(100vw - 32px)); grid-template-columns:1fr 1fr}
+.menu-panel.groups .menu-col{background:var(--paper); border-left:0}
+.menu-panel.groups .menu-col:nth-child(even){border-left:1px solid var(--rule-soft)}
+.menu-panel.groups .menu-col:nth-child(n+3){border-top:1px solid var(--rule-soft)}
+.menu-panel.groups .menu-col:first-child{background:var(--paper-2)}
+.masthead .menu-panel.groups h4 a{display:inline; padding:0; border:0; font:500 12px/1.3 var(--mono); color:var(--muted)}
+.masthead .menu-panel.groups h4 a:hover{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
+.masthead .menu-col a .price.q{color:var(--muted); font-weight:400}
+@media (max-width:780px){
+  .menu-panel.groups{grid-template-columns:1fr}
+  .menu-panel.groups .menu-col:nth-child(even){border-left:0}
+  .menu-panel.groups .menu-col:nth-child(n+2){border-top:1px solid var(--rule-soft)}
+}
