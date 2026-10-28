@@ -57,3 +57,4 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Primary call to action = vermilion `.btn-accent`; secondary = green `.btn` or a quiet link. The HubSpot submit button is an outline so it doesn't compete with the main button.
 - Visible brand name is "GivingBridge"; "Giving Bridge Consulting LLC" appears only in the legal footer and in schema `legalName`.
 - Avoid AI-sounding copy: balanced "X, not Y" contrasts, "Nothing vague", "No jargon, no hype", "actually".
+- QA checklist before pushing UI changes: check hover and focus states (hover the dropdown items, not just open the menu), 375px and 1280px widths, and every page that shares the changed CSS. Avoid one-letter class names (`.q` is the questionnaire row; reusing it once broke the nav).
