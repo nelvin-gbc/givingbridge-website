@@ -1,48 +1,47 @@
 # GivingBridge Consulting
 
-> GivingBridge Consulting is a fractional fundraising consultancy for nonprofits, founded and run by Nelvin Johnson. It helps small nonprofit teams, executive directors, and boards build the fundraising infrastructure, clarity, and roadmap to turn goodwill into lasting support. Tagline: "Fundraising that outlives the moment."
+> GivingBridge Consulting helps nonprofits with fundraising strategy and practical, safe AI. It is founded and run by Nelvin Johnson, and it helps small development teams, executive directors, and boards build the systems, clarity, and roadmap to turn goodwill into lasting support. Tagline: "Fundraising that outlives the moment."
 
-Legal entity: Giving Bridge Consulting LLC (New York). The Health Check and Donor Strategy Sprint are delivered fully remotely, for nonprofits anywhere in the U.S.
+Legal entity: Giving Bridge Consulting LLC (New York). All fixed-price offers are delivered remotely, for nonprofits anywhere in the U.S. Email-first: most work starts with an email, and calls are optional.
 
 ## Who it's for
 - Executive directors who do development work on top of everything else
 - Development teams of one to three people
 - Boards that want to help with fundraising but lack structure
-- Organizations that can't yet justify a full-time development director
+- Teams already using AI without a plan or a policy
 
 ## Services
-- [Fractional Development](https://givingbridgeconsulting.com/#fractional): ongoing, part-time senior fundraising leadership without a full-time hire. Covers strategy across individual, mid-level, and major gifts, executable plans, and systems that prevent staff burnout. The flagship service.
-- [Associate Board Development](https://givingbridgeconsulting.com/#associate-boards): build or restructure an associate board, with clear purpose, expectations, and term structure; recruitment for influence, generosity, and commitment; and members equipped to fundraise.
-- [Donor Strategy](https://givingbridgeconsulting.com/#donor-strategy): project-based donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity.
+- [Donor Strategy](https://givingbridgeconsulting.com/#donor-strategy): donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity. Available as a custom project or the fixed-price Donor Strategy Sprint.
+- [AI for Fundraising](https://givingbridgeconsulting.com/#ai-fundraising): practical, safe AI for fundraising teams, covering donor research briefs, first drafts of thank-yous, appeals, and grants, an AI policy that covers donor data, and team training. Available as the AI Fundraising Sprint or a team workshop.
+- [Associate Board Development](https://givingbridgeconsulting.com/#associate-boards): build or restructure an associate board with clear purpose, expectations, and term structure; recruitment for influence, generosity, and commitment; and members equipped to fundraise.
+- Ongoing fractional fundraising leadership is not offered at this time.
 
 ## Fixed-price offers
-- [Fundraising Health Check](https://givingbridgeconsulting.com/health-check/), $79: a written diagnosis of a nonprofit's fundraising across four areas (donor retention, pipeline, board, and communications rhythm). The buyer completes a 15-minute questionnaire and receives a personalized PDF report within 48 hours: strongest area, weakest link, and the three changes to make first. No sales call required.
-- [Donor Strategy Sprint](https://givingbridgeconsulting.com/sprint/), $1,200 flat, 3 weeks: four fixed deliverables (donor segmentation, a donor journey map, a 90-day engagement calendar, and a live working session with the team). It starts with a free scoping call, and the invoice follows.
-
-## How engagements start
-1. A free 15-minute conversation ([book here](https://calendar.app.google/1Do2GPcDJhYSkQES9))
-2. Discovery and assessment
-3. A roadmap matched to the right service
+- [Fundraising Health Check](https://givingbridgeconsulting.com/health-check/), $79: a written diagnosis across five areas (donor retention, pipeline, board, communications rhythm, and AI readiness). The buyer completes a 15-minute questionnaire and receives a personalized PDF report within 48 hours: strongest area, weakest link, and the three changes to make first. No call required.
+- [Donor Strategy Sprint](https://givingbridgeconsulting.com/sprint/), $1,200 flat, 3 weeks: donor segmentation, a donor journey map, a 90-day engagement calendar, and a live working session.
+- [AI Fundraising Sprint](https://givingbridgeconsulting.com/ai-sprint/), $1,800 flat, 3 weeks: a fundraising workflow audit, a prompt library in the organization's voice, an AI acceptable-use policy that protects donor data, and live team training. It works with the tools the team already has (for example ChatGPT, Claude, Copilot, or Gemini).
+- [AI for Fundraisers workshop](https://givingbridgeconsulting.com/ai-workshop/), $1,000 flat, 90 minutes, live and virtual: hands-on AI for real fundraising tasks, safe use with donor data, and a prompt pack. Also available for associations, AFP chapters, and conferences.
 
 ## About Nelvin Johnson
-Founder of GivingBridge Consulting. He moved from the for-profit world into nonprofit fundraising and has spent six years in the field, most of it as a major gifts fundraiser at organizations with budgets from $700,000 to $450 million. He holds an M.S. in Nonprofit Management. His approach is relational and intentional, and clients work with him directly.
+Founder of GivingBridge Consulting. He moved from the for-profit world into nonprofit fundraising and has spent six years in the field, most of it as a major gifts fundraiser at organizations with budgets from $700,000 to $450 million. He holds an M.S. in Nonprofit Management, and he has spent two years building with AI. His approach is relational and intentional, and clients work with him directly.
 
 ## Free resources by Nelvin Johnson
 - [Tovera](https://tovera.org): a free, verified calendar of nonprofit-sector events (conferences, webinars, workshops, networking, courses) across the U.S. and Canada, with 500+ upcoming events from 160+ sources and a weekly email. No paid placement.
-- [The Nonprofit AI Brief](https://nonprofitaibrief.org): a free daily guide to AI for nonprofits, philanthropy, and social impact. It reads 51 trusted sources every morning and sends a weekly email on Fridays.
+- [The Nonprofit AI Brief](https://nonprofitaibrief.org): a free daily guide to AI for nonprofits, philanthropy, and social impact. It reads 51 trusted sources every morning and sends a weekly email on Fridays. Its free [Nonprofit AI Playbook](https://nonprofitaibrief.org/playbook) includes an AI policy template, a board deck, 35 prompts, and a 30-60-90 day adoption roadmap.
 - More detail: https://givingbridgeconsulting.com/resources/
 
 ## Common questions
-- **What is a fractional development director?** A fractional development director is a senior fundraising leader who works with your organization part-time. They set priorities, guide strategy across individual, mid-level, and major gifts, and build the systems your team needs, without the cost of a full-time hire. It's built for organizations that need senior fundraising leadership but can't yet justify a full-time development director.
-- **How is fractional development different from a one-time consulting project?** Fractional development is an ongoing partnership: I work alongside your team week to week and adjust as your organization grows. A project, like the Donor Strategy Sprint, has a fixed scope, a fixed price, and a clear end date. Many organizations start with a project and move to fractional support later.
+- **How can AI help a small fundraising team?** Mostly by taking on the writing and research load: donor research briefs before meetings, first drafts of thank-you letters, appeals, and grant narratives, meeting notes, and data cleanup. It doesn't replace relationships. It frees up time for them. The AI Fundraising Sprint sets this up for your team.
+- **Is it safe to use AI with donor information?** It can be, with guardrails. Decide up front what never goes into an AI tool, which tools are approved, and where a person always reviews the output. Every AI engagement I do includes a written policy that covers donor data.
 - **What is an associate board, and how is it different from a board of directors?** A board of directors governs the organization and carries legal and fiduciary responsibility. An associate board is a separate group of committed supporters, often emerging leaders, who raise money, advocate, and expand your network without governance duties. A well-designed associate board can also become a pipeline for future board members and major donors.
-- **How much does it cost to work with GivingBridge?** There are two fixed-price ways to start: the Fundraising Health Check for $79, and the Donor Strategy Sprint for $1,200 flat. Fractional Development and Associate Board Development are scoped to your organization's needs, and we work out the details on a free 15-minute call.
+- **How much does it cost to work with GivingBridge?** There are four fixed-price options: the Fundraising Health Check ($79), the Donor Strategy Sprint ($1,200), the AI Fundraising Sprint ($1,800), and the AI for Fundraisers workshop ($1,000). Custom donor strategy projects and Associate Board Development are scoped to your needs, usually over email.
+- **Do you offer ongoing fractional fundraising leadership?** Not right now. I focus on fixed-scope projects so every client gets my full attention. The Donor Strategy Sprint and the AI Fundraising Sprint are the closest options, and if that changes, I'll share it here.
 - **What size organizations do you work with?** Mostly small nonprofits where fundraising rests on a few people: an executive director doing development on the side, a development team of one to three, or a board that wants to help. My own fundraising experience spans organizations with budgets from $700,000 to $450 million.
-- **Do you work with nonprofits outside of New York?** Yes. The Health Check and the Donor Strategy Sprint are done entirely remotely, so your location doesn't matter. For ongoing work, we'll talk through what makes sense on the first call.
-- **Do you write grants or plan events?** No. My focus is fundraising strategy and the systems behind it: donor relationships, board fundraising, and a steady rhythm of engagement. Those are what make grants, events, and campaigns more effective.
-- **How do I get started?** Book a free 15-minute call, or start with the $79 Fundraising Health Check if you'd like a written diagnosis first, with no call required.
+- **Do you work with nonprofits outside of New York?** Yes. The Health Check, both sprints, and the workshop are all done remotely, so your location doesn't matter.
+- **Do you write grants or plan events?** No. My focus is fundraising strategy, the systems behind it, and using AI well: donor relationships, board fundraising, and a steady rhythm of engagement. Those are what make grants, events, and campaigns more effective.
+- **How do I get started?** Email me at nelvin@givingbridgeconsulting.com, or start with the $79 Fundraising Health Check if you'd like a written diagnosis first. If you'd rather talk, book a free 15-minute call.
 
 ## Contact
 - Email: nelvin@givingbridgeconsulting.com
 - LinkedIn: https://www.linkedin.com/company/giving-bridge-consulting/
-- Book a free 15-minute call: https://calendar.app.google/1Do2GPcDJhYSkQES9
+- Optional free 15-minute call: https://calendar.app.google/1Do2GPcDJhYSkQES9

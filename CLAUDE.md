@@ -11,13 +11,15 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 
 ## Structure
 - `index.html`: the whole homepage, with inline `<style>` and no build. It uses the "Field Guide" design (Oct 2026 brand refresh): a printed-manual feel with chapters.
-  - Sections: `header .masthead` (wordmark, nav, audience line) → `.preface` hero + contents → `#diagnosis` (Ch. 1, symptoms table + reactive/steady diagram) → `#entries` (Ch. 2, three services as "field entries" + donor journey diagram) → `#procedure` (Ch. 3, checklist) → `#author` (Ch. 4, portrait + bio + facts row) → `#faq` (Ch. 5, eight FAQs, mirrored in JSON-LD and llms.txt) → `#contact` (Ch. 6, dark band with booking button, contact list, HubSpot form) → `.colophon` footer.
+  - Sections: `header .masthead` (wordmark, nav, audience line) → `.preface` hero + contents → `#diagnosis` (Ch. 1, symptoms table + reactive/steady diagram) → `#entries` (Ch. 2, three services as "field entries": 2.1 `#donor-strategy` (custom project or Sprint, with donor journey diagram), 2.2 `#ai-fundraising` (AI Sprint or workshop), 2.3 `#associate-boards`) → `#procedure` (Ch. 3, checklist) → `#author` (Ch. 4, portrait + bio + facts row) → `#faq` (Ch. 5, nine FAQs, mirrored in JSON-LD and llms.txt) → `#contact` (Ch. 6, dark band with booking button, contact list, HubSpot form) → `.colophon` footer.
   - Breakpoints: 1080px and 780px.
 - **Cache busting:** subpages link `/assets/site.css?v=…`, and browsers cache it for an hour. Whenever `site.css` changes, bump the `?v=` value in every subpage, or visitors keep the old styles.
 - Other pages (all use `assets/site.css`, which copies the homepage's inline styles plus offer and resource styles; keep both in sync):
   - `health-check/`: $79 Fundraising Health Check offer. The buy button is a Stripe Payment Link (not created yet: the button is temporarily email-first, with a prefilled mailto and an optional call link, and the Stripe version is kept in an HTML comment beside it; step 1 of "How it works" also needs updating at swap time). Nelvin wants this offer email-forward, with calls always optional, because calls add friction; Stripe redirects to `health-check/questionnaire/?session_id={CHECKOUT_SESSION_ID}`.
   - `health-check/questionnaire/`: Netlify Form `health-check` (needs form detection enabled in Netlify), posts to `health-check/thanks/`. Stores `stripe_session_id`. noindex.
   - `sprint/`: $1,200 / 3-week Donor Strategy Sprint. CTA is a scoping call; invoiced after.
+  - `ai-sprint/`: $1,800 / 3-week AI Fundraising Sprint (workflow audit, prompt library in their voice, AI policy covering donor data, team training). Email-first CTA.
+  - `ai-workshop/`: $1,000 / 90-minute AI for Fundraisers workshop (live, virtual; also pitched to associations and AFP chapters). Email-first CTA.
   - `resources/`: detailed, branded write-ups of Tovera (tovera.org) and The Nonprofit AI Brief (nonprofitaibrief.org). Credit line is Nelvin's name; public figures only; those sites do not link back. Not on the homepage; it lives only on /resources/, which the nav links to through a Resources dropdown.
 - `assets/`: `nelvin.jpg` (headshot, 1000px), `favicon.svg`, `apple-touch-icon.png` (180), `og-image.jpg` (1200×630 link preview), `site.css`, `resources/` (screenshots and logo crops of Tovera and the Brief).
 - `concepts/` is gitignored: local design explorations (four concepts, the brand board, logo source files in `concepts/brand/`). Never deploy it.
@@ -34,8 +36,15 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Booking: Google Calendar appointment link `https://calendar.app.google/1Do2GPcDJhYSkQES9`.
 - LinkedIn: company page `giving-bridge-consulting`.
 
+## Offer lineup (as of 2026-10-27)
+- Services: Donor Strategy, AI for Fundraising, Associate Board Development. Fixed price: Health Check $79 (five areas, including AI readiness), Donor Strategy Sprint $1,200, AI Fundraising Sprint $1,800, AI workshop $1,000.
+- Fractional Development was removed because Nelvin doesn't have the capacity. A FAQ answer says it isn't offered right now; don't reintroduce it without asking.
+- The paid AI offers are the done-with-you version of the free Nonprofit AI Playbook (nonprofitaibrief.org/playbook). Don't position them as another toolkit.
+- Nelvin prefers email-first CTAs with an optional call (calls add friction).
+
 ## Search, AI visibility and security
 - `robots.txt` allows all crawlers, including AI ones (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, …), and blocks the questionnaire, thanks and `_internal` pages. `sitemap.xml` lists the 4 public pages (update `lastmod` when pages change). `llms.txt` is a plain-language summary for AI assistants; keep services, prices and facts in sync with the pages.
+- **Regenerate with `python3 scripts/build_seo.py`** after changing services, prices, pages or FAQ text: it rewrites every page's JSON-LD and `sitemap.xml`. New public pages must be added to its `PAGES` map. `llms.txt` is maintained by hand.
 - Every public page has JSON-LD (`@graph`): Organization/ProfessionalService, Person (Nelvin), Service + Offer (with prices), WebSite entries for Tovera and the Brief, FAQPage (generated from the visible `<details>` FAQs; regenerate if the FAQ text changes), and BreadcrumbList on subpages. Only state facts that are visible on the site.
 - `netlify.toml` sets a CSP allowing only self, Google Fonts and the HubSpot form (js-na2.hsforms.net, forms-na2.hsforms.com), plus HSTS, X-Frame-Options DENY, Permissions-Policy, COOP and nosniff. **If you add a third-party script, embed or font, add its domain to the CSP** or it will be blocked. Test CSP changes with a draft deploy (`netlify deploy --dir .`) before pushing.
 - `/.well-known/security.txt` lists the security contact (expires 2027-10-25; renew it).

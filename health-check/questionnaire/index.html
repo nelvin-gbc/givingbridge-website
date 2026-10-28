@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261027a">
 </head>
 <body>
 <div class="sheet">
@@ -29,14 +29,16 @@
             <div class="menu-panel">
               <div class="menu-col">
                 <h4>Work together</h4>
-                <a href="/#fractional"><span>Fractional Development</span><small>Ongoing senior leadership</small></a>
+                <a href="/#donor-strategy"><span>Donor Strategy</span><small>Custom project or fixed-price sprint</small></a>
+                <a href="/#ai-fundraising"><span>AI for Fundraising</span><small>Sprint or team workshop</small></a>
                 <a href="/#associate-boards"><span>Associate Board Development</span><small>Build or restructure</small></a>
-                <a href="/#donor-strategy"><span>Donor Strategy</span><small>Project-based</small></a>
               </div>
               <div class="menu-col">
-                <h4>Start small</h4>
+                <h4>Fixed price</h4>
                 <a href="/health-check/"><b class="price">$79</b><span>Fundraising Health Check</span><small>Written diagnosis in 48 hours</small></a>
-                <a href="/sprint/"><b class="price">$1,200</b><span>Donor Strategy Sprint</span><small>Fixed scope, three weeks</small></a>
+                <a href="/sprint/"><b class="price">$1,200</b><span>Donor Strategy Sprint</span><small>Three weeks</small></a>
+                <a href="/ai-sprint/"><b class="price">$1,800</b><span>AI Fundraising Sprint</span><small>Three weeks</small></a>
+                <a href="/ai-workshop/"><b class="price">$1,000</b><span>AI for Fundraisers workshop</span><small>90 minutes, live</small></a>
               </div>
             </div>
           </details>
@@ -120,7 +122,15 @@
           </fieldset>
 
           <fieldset>
-          <legend><span class="k">6</span>In your words</legend>
+          <legend><span class="k">6</span>AI and your team</legend>
+          <div class="q"><span class="qlabel">Is your team using AI tools (like ChatGPT, Claude, Copilot, or Gemini) for work?</span><div class="choices"><label><input type="radio" name="ai_use" value="Regularly"> Regularly</label><label><input type="radio" name="ai_use" value="Some people, sometimes"> Some people, sometimes</label><label><input type="radio" name="ai_use" value="Not yet"> Not yet</label><label><input type="radio" name="ai_use" value="Not sure"> Not sure</label></div></div>
+          <div class="q"><span class="qlabel">Do you have a written policy for how staff use AI?</span><div class="choices"><label><input type="radio" name="ai_policy" value="Yes"> Yes</label><label><input type="radio" name="ai_policy" value="In progress"> In progress</label><label><input type="radio" name="ai_policy" value="No"> No</label></div></div>
+          <div class="q"><span class="qlabel">Which tasks take your team the most time?<span class="hint">Check all that apply.</span></span><div class="choices"><label><input type="checkbox" name="time_sinks" value="Thank-you letters"> Thank-you letters</label><label><input type="checkbox" name="time_sinks" value="Appeals and newsletters"> Appeals and newsletters</label><label><input type="checkbox" name="time_sinks" value="Grant writing"> Grant writing</label><label><input type="checkbox" name="time_sinks" value="Donor research"> Donor research</label><label><input type="checkbox" name="time_sinks" value="Reports to funders or the board"> Reports to funders or the board</label><label><input type="checkbox" name="time_sinks" value="Data entry and cleanup"> Data entry and cleanup</label><label><input type="checkbox" name="time_sinks" value="Meeting notes and follow-up"> Meeting notes and follow-up</label></div></div>
+          <div class="q"><span class="qlabel">How comfortable is your team using AI safely?</span><div class="scale"><label><input type="radio" name="ai_comfort" value="1"> 1</label><label><input type="radio" name="ai_comfort" value="2"> 2</label><label><input type="radio" name="ai_comfort" value="3"> 3</label><label><input type="radio" name="ai_comfort" value="4"> 4</label><label><input type="radio" name="ai_comfort" value="5"> 5</label></div><div class="scale-ends"><span>1 · Not at all</span><span>5 · Very</span></div></div>
+          </fieldset>
+
+          <fieldset>
+          <legend><span class="k">7</span>In your words</legend>
           <div class="q"><label for="challenge">What is your biggest fundraising challenge right now? <span class="req">*</span></label><textarea id="challenge" name="biggest_challenge" required></textarea></div>
           <div class="q"><label for="success">What would a great year of fundraising look like 12 months from now?</label><textarea id="success" name="success_in_12_months"></textarea></div>
           <div class="q"><label for="other">Anything else I should know?</label><textarea id="other" name="anything_else"></textarea></div>

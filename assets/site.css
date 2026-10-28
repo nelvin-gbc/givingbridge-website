@@ -431,3 +431,5 @@ figure{margin:0}
   .masthead nav{grid-column:1; grid-row:2; justify-self:start}
   .masthead .audience{grid-column:1; grid-row:3; justify-self:start}
 }
+
+.area:last-child:nth-child(odd){grid-column:1 / -1; padding-right:0}
