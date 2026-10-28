@@ -10,11 +10,11 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Local preview: `python3 -m http.server 8765` from the repo root (config in `.claude/launch.json`).
 
 ## Structure
-- `index.html`: the whole homepage, with inline `<style>` and no build. It uses the "Field Guide" design (Oct 2026 brand refresh): a printed-manual feel with chapters.
+- `index.html`: the homepage. All pages, the homepage included, share `assets/site.css` (no inline style blocks, except the HubSpot `cssRequired` on the homepage). No build step. It uses the "Field Guide" design (Oct 2026 brand refresh): a printed-manual feel with chapters.
   - Sections: `header .masthead` (wordmark, nav, audience line) → `.preface` hero + contents → `#diagnosis` (Ch. 1, symptoms table + reactive/steady diagram) → `#entries` (Ch. 2, three services as "field entries": 2.1 `#donor-strategy` (custom project or Sprint, with donor journey diagram), 2.2 `#ai-fundraising` (AI Sprint or workshop), 2.3 `#associate-boards`) → `#procedure` (Ch. 3, checklist) → `#author` (Ch. 4, portrait + bio + facts row) → `#faq` (Ch. 5, nine FAQs, mirrored in JSON-LD and llms.txt) → `#contact` (Ch. 6, dark band with booking button, contact list, HubSpot form) → `.colophon` footer.
   - Breakpoints: 1080px and 780px.
-- **Cache busting:** subpages link `/assets/site.css?v=…`, and browsers cache it for an hour. Whenever `site.css` changes, bump the `?v=` value in every subpage, or visitors keep the old styles.
-- Other pages (all use `assets/site.css`, which copies the homepage's inline styles plus offer and resource styles; keep both in sync):
+- **Cache busting:** every page, the homepage included, links `/assets/site.css?v=…`, and browsers cache it for an hour. Whenever `site.css` changes, bump the `?v=` value in every subpage, or visitors keep the old styles.
+- Other pages:
   - `health-check/`: $79 Fundraising Health Check offer. The buy button is a Stripe Payment Link (not created yet: the button is temporarily email-first, with a prefilled mailto and an optional call link, and the Stripe version is kept in an HTML comment beside it; step 1 of "How it works" also needs updating at swap time). Nelvin wants this offer email-forward, with calls always optional, because calls add friction; Stripe redirects to `health-check/questionnaire/?session_id={CHECKOUT_SESSION_ID}`.
   - `health-check/questionnaire/`: Netlify Form `health-check` (needs form detection enabled in Netlify), posts to `health-check/thanks/`. Stores `stripe_session_id`. noindex.
   - `sprint/`: $1,200 / 3-week Donor Strategy Sprint. CTA is a scoping call; invoiced after.
@@ -49,3 +49,10 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - `netlify.toml` sets a CSP allowing only self, Google Fonts and the HubSpot form (js-na2.hsforms.net, forms-na2.hsforms.com), plus HSTS, X-Frame-Options DENY, Permissions-Policy, COOP and nosniff. **If you add a third-party script, embed or font, add its domain to the CSP** or it will be blocked. Test CSP changes with a draft deploy (`netlify deploy --dir .`) before pushing.
 - `/.well-known/security.txt` lists the security contact (expires 2027-10-25; renew it).
 - No database or user accounts, so database row-level security (RLS) doesn't apply to this site.
+
+## Copy and design conventions (from the 2026-10-27 buyer and designer review)
+- Section labels: the hero is "Preface", then "Ch. 1, 2…", and the dark closing band is the last chapter ("Getting in touch"). "Entry 2.x" appears only inside homepage Ch. 2; "Step n" is used for procedures.
+- No eyebrow or kicker labels above headlines, no "New" badges, no dagger footnotes.
+- Primary call to action = vermilion `.btn-accent`; secondary = green `.btn` or a quiet link. The HubSpot submit button is an outline so it doesn't compete with the main button.
+- Visible brand name is "GivingBridge"; "Giving Bridge Consulting LLC" appears only in the legal footer and in schema `legalName`.
+- Avoid AI-sounding copy: balanced "X, not Y" contrasts, "Nothing vague", "No jargon, no hype", "actually".

@@ -3,7 +3,7 @@
 :root{
   --ink:#1B3829; --ink-deep:#0F2219; --paper:#FFFFFF; --paper-2:#EDF2EE;
   --accent:#E4572E; --on-accent:#0F2219; --soft:#CFE0D5; --on-soft:#1B3829;
-  --text:#1D2420; --muted:#66706A;
+  --text:#1D2420; --muted:#5A645E;
 }
 :root{
   --mid:#2D5240;
@@ -251,7 +251,7 @@ figure{margin:0}
   .dx td{padding:0; border:0}
   .dx td:first-child{width:100%; margin-bottom:12px}
   .dx td:last-child{border-left:2px solid var(--ink); padding-left:14px}
-  .dx td:last-child::before{content:"What's actually happening"; display:block; font:400 11.5px/1 var(--mono); color:var(--muted); margin-bottom:8px}
+  .dx td:last-child::before{content:"What's underneath"; display:block; font:400 11.5px/1 var(--mono); color:var(--muted); margin-bottom:8px}
   .fig{padding:16px 12px 12px; margin-left:-4px; margin-right:-4px}
   .fig .scroll{overflow-x:auto}
   .fig .scroll svg{min-width:560px}
@@ -447,4 +447,44 @@ figure{margin:0}
   .menu-panel.groups{grid-template-columns:1fr}
   .menu-panel.groups .menu-col + .menu-col{border-left:0}
   .menu-panel.groups .menu-col:nth-child(n+2){border-top:1px solid var(--rule-soft)}
+}
+
+/* ---------- anchors ---------- */
+[id]{scroll-margin-top:16px}
+
+/* ---------- two-step / either-or blocks (homepage services) ---------- */
+.paths{display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); margin-top:26px; border-top:1.5px solid var(--ink); max-width:760px}
+.path{padding:16px 22px 2px 0}
+.path + .or + .path{padding:16px 0 2px 22px}
+.path .k{display:block; font:400 12.5px/1.4 var(--mono); color:var(--muted); margin-bottom:6px}
+.path h4{margin:0 0 6px; font:500 1.12rem/1.25 var(--serif); color:var(--ink)}
+.path p{margin:0 0 10px; font-size:.98rem}
+.path a{font:500 13.5px/1.4 var(--mono)}
+.paths .or{display:flex; align-items:center; padding:0 14px; font:italic 400 1rem/1 var(--serif); color:var(--muted); border-left:1px solid var(--rule-soft); border-right:1px solid var(--rule-soft)}
+@media (max-width:780px){
+  .paths{grid-template-columns:1fr}
+  .path, .path + .or + .path{padding:14px 0 4px}
+  .paths .or{padding:4px 0; border:0}
+}
+
+/* ---------- homepage offer ledger (reuses .contents) ---------- */
+.contents.offers{margin-top:40px; border-top:1.5px solid var(--ink)}
+.contents.offers + .contents{margin-top:36px}
+.contents.offers .p{font:500 13px/1 var(--mono); color:var(--accent); white-space:nowrap}
+.contents.offers .t{font-weight:500; color:var(--ink)}
+@media (max-width:780px){ .contents.offers .p{display:inline; font-size:12.5px; margin-left:auto} .contents.offers .lead{display:none} }
+
+/* ---------- review fixes (2026-10-27) ---------- */
+.ch-close h2{max-width:16ch}
+@media (max-width:1080px){
+  /* phones/tablets: headline, then price card, then intro */
+  .offer-hero > div:first-child{display:contents}
+  .offer-hero h1{order:1; margin-bottom:0}
+  .offer-hero .price-card{order:2}
+  .offer-hero .intro{order:3}
+  .offer-hero{row-gap:28px}
+}
+@media (max-width:780px){
+  .preface .intro p:first-child::first-letter{float:none; font-size:inherit; line-height:inherit; padding:0; font-weight:inherit}
+  .reach dd{white-space:nowrap; overflow-wrap:normal; font-size:12.5px}
 }
