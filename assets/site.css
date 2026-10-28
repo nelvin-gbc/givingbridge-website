@@ -499,3 +499,8 @@ figure{margin:0}
 .masthead .menu-col a:hover > small, .masthead .menu-col a:hover > .price{text-decoration:none}
 .masthead .menu-panel h4 a{display:inline; text-decoration:none}
 .masthead .menu-panel h4 a:hover{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+
+/* ---------- comfortable line length everywhere (~65–70 characters) ---------- */
+.ch-body p, .ch-body li, .ch-body dd{max-width:36em}
+.ch-body .scope, .ch-body .facts{max-width:620px}
+.ch-body .entry ul{max-width:36em}
