@@ -75,7 +75,7 @@ AIW = service(BASE + "/ai-workshop/#service", "AI for Fundraisers workshop",
               "A 90-minute, hands-on virtual workshop that teaches nonprofit fundraising teams and boards to use AI well and safely on real fundraising tasks.",
               BASE + "/ai-workshop/", "AI training for nonprofits", "1000")
 DS = service(BASE + "/#svc-donor-strategy", "Donor Strategy",
-             "Project-based donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity. Available as a custom project or the fixed-price Donor Strategy Sprint.",
+             "Project-based donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity. Start with the $79 Fundraising Health Check, then the fixed-price Donor Strategy Sprint.",
              BASE + "/#donor-strategy", "Donor strategy consulting")
 AIF = service(BASE + "/#svc-ai-fundraising", "AI for Fundraising",
               "Practical, safe AI for nonprofit fundraising teams: donor research, drafting thank-yous, appeals, and grants, an AI policy that covers donor data, and team training. Available as the AI Fundraising Sprint or a team workshop.",
