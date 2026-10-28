@@ -41,6 +41,7 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Fractional Development was removed because Nelvin doesn't have the capacity. A FAQ answer says it isn't offered right now; don't reintroduce it without asking.
 - The paid AI offers are the done-with-you version of the free Nonprofit AI Playbook (nonprofitaibrief.org/playbook). Don't position them as another toolkit.
 - Nelvin prefers email-first CTAs with an optional call (calls add friction).
+- Guarantees (approved 2026-10-27): Health Check: if the report doesn't tell them something new, the $79 is refunded. Both sprints: if the Week 2 drafts aren't on track, the full fee is refunded and the client keeps what was delivered. Credit: the $79 counts toward either sprint if booked within 60 days. The workshop has no guarantee (not yet decided). These appear in price cards (`.guarantee`), the FAQs, the homepage pricing FAQ, llms.txt, and the follow-up emails.
 
 ## Search, AI visibility and security
 - `robots.txt` allows all crawlers, including AI ones (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, …), and blocks the questionnaire, thanks and `_internal` pages. `sitemap.xml` lists the 4 public pages (update `lastmod` when pages change). `llms.txt` is a plain-language summary for AI assistants; keep services, prices and facts in sync with the pages.

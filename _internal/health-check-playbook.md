@@ -47,6 +47,7 @@ A few things to know as you read it:
 - It's built entirely from your answers, so where something sounds off, it's usually a sign the data's fuzzy. That's worth knowing too.
 - The first action item is the one I'd do this month, even if you do nothing else.
 - If you want to talk any of it through, reply here or grab 15 minutes on my calendar: https://calendar.app.google/1Do2GPcDJhYSkQES9
+- If you decide to book the Donor Strategy Sprint or the AI Fundraising Sprint within 60 days (by [date]), your $79 comes off the price.
 
 Thanks for trusting me with an honest look at your fundraising.
 
@@ -109,7 +110,7 @@ In three weeks you get:
 - A 90-day engagement calendar your team can keep
 - A working session with your team to put it in motion
 
-It's $1,200 flat, with no retainer. I only take a few sprints each month so each one gets real attention.
+It's $1,200 flat, with no retainer, and your $79 Health Check comes off the price if you book by [date, 60 days from purchase]. If the Week 2 drafts aren't on track, I refund the full fee. I only take a few sprints each month so each one gets real attention.
 
 If you'd like to see whether it's a fit, book a 15-minute scoping call: https://calendar.app.google/1Do2GPcDJhYSkQES9
 
