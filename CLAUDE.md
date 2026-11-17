@@ -15,9 +15,7 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
   - Breakpoints: 1080px and 780px.
 - **Cache busting:** every page, the homepage included, links `/assets/site.css?v=…`, and browsers cache it for an hour. Whenever `site.css` changes, bump the `?v=` value in every subpage, or visitors keep the old styles.
 - Other pages:
-  - `health-check/`: $79 Fundraising Health Check offer. The buy button is a Stripe Payment Link (not created yet: the button is temporarily email-first, with a prefilled mailto and an optional call link, and the Stripe version is kept in an HTML comment beside it; step 1 of "How it works" also needs updating at swap time). Nelvin wants this offer email-forward, with calls always optional, because calls add friction; Stripe redirects to `health-check/questionnaire/?session_id={CHECKOUT_SESSION_ID}`.
-  - `health-check/questionnaire/`: Netlify Form `health-check` (needs form detection enabled in Netlify), posts to `health-check/thanks/`. Stores `stripe_session_id`. noindex.
-  - `sprint/`: $1,200 / 3-week Donor Strategy Sprint. CTA is a scoping call; invoiced after.
+  - `sprint/`: $1,500 / 3-week Donor Strategy Sprint. CTA is a scoping call; invoiced after.
   - `ai-sprint/`: $1,800 / 3-week AI Fundraising Sprint (workflow audit, prompt library in their voice, AI policy covering donor data, team training). Email-first CTA.
   - `ai-workshop/`: $1,000 / 90-minute AI for Fundraisers workshop (live, virtual; also pitched to associations and AFP chapters). Email-first CTA.
   - `resources/`: detailed, branded write-ups of Tovera (tovera.org) and The Nonprofit AI Brief (nonprofitaibrief.org). Credit line is Nelvin's name; public figures only; those sites do not link back. Not on the homepage; it lives only on /resources/, which the nav links to through a Resources dropdown.
@@ -36,12 +34,13 @@ Source of truth for givingbridgeconsulting.com. Originally built in Claude Cowor
 - Booking: Google Calendar appointment link `https://calendar.app.google/1Do2GPcDJhYSkQES9`.
 - LinkedIn: company page `giving-bridge-consulting`.
 
-## Offer lineup (as of 2026-10-27)
-- Services: Donor Strategy, AI for Fundraising, Associate Board Development. Fixed price: Health Check $79 (five areas, including AI readiness), Donor Strategy Sprint $1,200, AI Fundraising Sprint $1,800, AI workshop $1,000.
-- Fractional Development was removed because Nelvin doesn't have the capacity. A FAQ answer says it isn't offered right now; don't reintroduce it without asking.
-- The paid AI offers are the done-with-you version of the free Nonprofit AI Playbook (nonprofitaibrief.org/playbook). Don't position them as another toolkit.
-- Nelvin prefers email-first CTAs with an optional call (calls add friction).
-- Guarantees (approved 2026-10-27): Health Check: if the report doesn't tell them something new, the $79 is refunded. Both sprints: if the Week 2 drafts aren't on track, the full fee is refunded and the client keeps what was delivered. Credit: the $79 counts toward either sprint if booked within 60 days. The workshop has no guarantee (not yet decided). These appear in price cards (`.guarantee`), the FAQs, the homepage pricing FAQ, llms.txt, and the follow-up emails.
+## Offer lineup (as of 2026-11-17)
+- Services menu (two groups): **AI for Fundraising**: AI Fundraising Sprint $1,800 and the team workshop $1,000. **Fundraising**: Donor Strategy Sprint $1,500 and Associate Board Development (scoped).
+- Retired: the Fundraising Health Check ($79), removed 2026-11; `/health-check/*` 301-redirects to `/sprint/`. Fractional Development is also retired (a FAQ says it isn't offered right now). Don't reintroduce either without asking.
+- Guarantee: both sprints. If the Week 2 drafts aren't on track, the full fee is refunded and the client keeps what was delivered. The workshop has no guarantee. (The $79-credit offer ended with the Health Check.)
+- The paid AI offers are the done-with-you version of the free Nonprofit AI Playbook (nonprofitaibrief.org/playbook).
+- Contact: email first, with the free 15-minute call offered alongside it everywhere (Nelvin doesn't want calls to feel inaccessible).
+- Under consideration (plan only, nothing built): repackaging AI as a 4-week cohort class. See the chat plan from 2026-11-06.
 
 ## Search, AI visibility and security
 - `robots.txt` allows all crawlers, including AI ones (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, …), and blocks the questionnaire, thanks and `_internal` pages. `sitemap.xml` lists the 4 public pages (update `lastmod` when pages change). `llms.txt` is a plain-language summary for AI assistants; keep services, prices and facts in sync with the pages.

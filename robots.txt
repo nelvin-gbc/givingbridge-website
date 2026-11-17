@@ -2,8 +2,6 @@
 # Everyone, including AI search and answer engines, is welcome to read the public site.
 User-agent: *
 Allow: /
-Disallow: /health-check/questionnaire/
-Disallow: /health-check/thanks/
 Disallow: /_internal/
 
 # AI assistants and answer engines (explicitly allowed)
@@ -19,8 +17,6 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: Bingbot
 Allow: /
-Disallow: /health-check/questionnaire/
-Disallow: /health-check/thanks/
 Disallow: /_internal/
 
 Sitemap: https://givingbridgeconsulting.com/sitemap.xml

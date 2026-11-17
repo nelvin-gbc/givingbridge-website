@@ -48,6 +48,13 @@
   status = 404
   force = true
 
+# The Health Check was retired (2026-11): send old links to the Donor Strategy Sprint
+[[redirects]]
+  from = "/health-check/*"
+  to = "/sprint/"
+  status = 301
+  force = true
+
 # One canonical URL for the homepage
 [[redirects]]
   from = "/index.html"
@@ -73,18 +80,6 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
     Cross-Origin-Opener-Policy = "same-origin"
     X-Permitted-Cross-Domain-Policies = "none"
-
-# Private pages: keep out of search results
-[[headers]]
-  for = "/health-check/questionnaire/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-    Cache-Control = "no-store"
-
-[[headers]]
-  for = "/health-check/thanks/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
 
 # ---------------------------------------------------------------------------
 # Caching

@@ -1,3 +1,5 @@
+> **Retired 2026-11:** the $79 Health Check was removed from the site. This playbook is kept for reference only.
+
 # Health Check playbook (internal)
 
 Not published: `netlify.toml` returns 404 for `/_internal/*`.

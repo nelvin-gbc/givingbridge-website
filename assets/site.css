@@ -270,7 +270,7 @@ figure{margin:0}
 }
 
 /* =====================================================================
-   Offer pages (/health-check, /sprint)
+   Offer pages (/sprint, /ai-sprint, /ai-workshop)
    ===================================================================== */
 .masthead nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent)}
 
@@ -432,7 +432,7 @@ figure{margin:0}
 .area:last-child:nth-child(odd){grid-column:1 / -1; padding-right:0}
 
 /* Services menu grouped by topic (2x2) */
-.menu-panel.groups{width:min(820px, calc(100vw - 32px)); grid-template-columns:repeat(3,1fr)}
+.menu-panel.groups{width:min(600px, calc(100vw - 32px)); grid-template-columns:repeat(2,1fr)}
 .menu-panel.groups .menu-col{background:var(--paper); border-left:0}
 .menu-panel.groups .menu-col + .menu-col{border-left:1px solid var(--rule-soft)}
 
@@ -505,3 +505,5 @@ figure{margin:0}
 .ch-body .scope{max-width:620px}
 .ch-body .facts dd{max-width:none}
 .ch-body .entry ul{max-width:36em}
+
+.paths.single{grid-template-columns:minmax(0,1fr); max-width:560px}

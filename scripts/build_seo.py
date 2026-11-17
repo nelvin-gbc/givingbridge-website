@@ -62,12 +62,9 @@ def service(sid, name, desc, url, stype, price=None):
     return s
 
 
-HC = service(BASE + "/health-check/#service", "Fundraising Health Check",
-             "A written diagnosis of a nonprofit's fundraising across donor retention, pipeline, board, communications rhythm, and AI readiness. Complete a 15-minute questionnaire and receive a personalized PDF report within 48 hours.",
-             BASE + "/health-check/", "Fundraising assessment", "79")
 SP = service(BASE + "/sprint/#service", "Donor Strategy Sprint",
              "A fixed-scope, three-week project: donor segmentation, a donor journey map, a 90-day engagement calendar, and a live working session with the team.",
-             BASE + "/sprint/", "Donor strategy consulting", "1200")
+             BASE + "/sprint/", "Donor strategy consulting", "1500")
 AIS = service(BASE + "/ai-sprint/#service", "AI Fundraising Sprint",
               "A fixed-scope, three-week project that puts AI to work for a nonprofit fundraising team: a workflow audit, a prompt library in the organization's voice, an AI acceptable-use policy that protects donor data, and live team training.",
               BASE + "/ai-sprint/", "AI consulting for nonprofits", "1800")
@@ -75,7 +72,7 @@ AIW = service(BASE + "/ai-workshop/#service", "AI for Fundraisers workshop",
               "A 90-minute, hands-on virtual workshop that teaches nonprofit fundraising teams and boards to use AI well and safely on real fundraising tasks.",
               BASE + "/ai-workshop/", "AI training for nonprofits", "1000")
 DS = service(BASE + "/#svc-donor-strategy", "Donor Strategy",
-             "Project-based donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity. Start with the $79 Fundraising Health Check, then the fixed-price Donor Strategy Sprint.",
+             "Project-based donor segmentation, donor journeys for key relationships, and an engagement cadence sized to the team's real capacity. Delivered as the fixed-price, three-week Donor Strategy Sprint ($1,500).",
              BASE + "/#donor-strategy", "Donor strategy consulting")
 AIF = service(BASE + "/#svc-ai-fundraising", "AI for Fundraising",
               "Practical, safe AI for nonprofit fundraising teams: donor research, drafting thank-yous, appeals, and grants, an AI policy that covers donor data, and team training. Available as the AI Fundraising Sprint or a team workshop.",
@@ -104,15 +101,14 @@ def faq(h, fid):
 
 
 ORG_HOME = dict(ORG, makesOffer=[{"@type": "Offer", "itemOffered": ref(s["@id"]), "price": s["offers"]["price"], "priceCurrency": "USD"}
-                                 for s in (HC, SP, AIS, AIW)])
+                                 for s in (SP, AIS, AIW)])
 
 PAGES = {
-    "index.html": (lambda h: [WEBSITE, ORG_HOME, PERSON, DS, AIF, AB, HC, SP, AIS, AIW, TOVERA, BRIEF,
+    "index.html": (lambda h: [WEBSITE, ORG_HOME, PERSON, DS, AIF, AB, SP, AIS, AIW, TOVERA, BRIEF,
                               {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/",
                                "name": "GivingBridge Consulting | Fundraising that outlives the moment",
                                "isPartOf": ref(BASE + "/#website"), "about": ref(BASE + "/#org"),
                                "primaryImageOfPage": BASE + "/assets/og-image.jpg"}] + faq(h, BASE + "/#faq"), "/", "1.0"),
-    "health-check/index.html": (lambda h: [ORG, HC] + faq(h, BASE + "/health-check/#faq") + [crumbs("Fundraising Health Check", BASE + "/health-check/")], "/health-check/", "0.9"),
     "sprint/index.html": (lambda h: [ORG, SP] + faq(h, BASE + "/sprint/#faq") + [crumbs("Donor Strategy Sprint", BASE + "/sprint/")], "/sprint/", "0.9"),
     "ai-sprint/index.html": (lambda h: [ORG, AIS] + faq(h, BASE + "/ai-sprint/#faq") + [crumbs("AI Fundraising Sprint", BASE + "/ai-sprint/")], "/ai-sprint/", "0.9"),
     "ai-workshop/index.html": (lambda h: [ORG, AIW] + faq(h, BASE + "/ai-workshop/#faq") + [crumbs("AI for Fundraisers workshop", BASE + "/ai-workshop/")], "/ai-workshop/", "0.8"),
